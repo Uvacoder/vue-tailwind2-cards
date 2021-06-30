@@ -2,6 +2,7 @@
     <!-- Tambahkan komponen header -->
 
     <h1 class="text-2xl"> HOLA {{ testEnv }} </h1>
+    TESTING
     <Header 
     @show-tasks="showTasks()"
     :showAddStatus="showAddTask"
