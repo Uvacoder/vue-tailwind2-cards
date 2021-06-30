@@ -1,5 +1,7 @@
 <template>
     <!-- Tambahkan komponen header -->
+
+    <h1 class="text-2xl"> HOLA {{ testEnv }} </h1>
     <Header 
     @show-tasks="showTasks()"
     :showAddStatus="showAddTask"
@@ -14,7 +16,7 @@
     <!-- Shortcut dari v-bind  adalah : -->
       <img class="rounded-full shadow-xl" :src="gambar" :alt="`${namaAwal} ${namaAkhir}`">
       <button v-on:click="tambah()" class="p-2 bg-blue-500 my-5 text-white rounded-lg shadow-lg">Tambah</button>
-      <button v-on:click="kurang()" class="p-2 bg-red-500 my-5 text-white rounded-lg shadow-lg mx-5">Kurang</button>
+      <button v-on:click="kurang()" class="p-2 bg-red-500 my-5 text-white rounded-lg shadow-jlg mx-5">Kurang</button>
       <br>
       <button v-on:click="randomUser()" class="p-2 bg-red-500 my-5 text-white rounded-lg shadow-lg mx-5">Random User</button>
       <!-- lempar ke view, lalu tangkap sebagai props -->
@@ -37,13 +39,13 @@ export default {
   },
   data(){
     return {
+      testEnv: process.env.TEST_KEY,
       namaAwal: 'John',
       namaAkhir: 'Doe',
       jumlah: 1,
       // variabel = Gambar dari google
       gambar: 'https://randomuser.me/api/portraits/men/10.jpg',
       showAddTask: true,
-      
     }
   },
   methods: {
