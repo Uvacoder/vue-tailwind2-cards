@@ -3,7 +3,8 @@
         <h1 class="bg-gray-500">{{ title }}</h1>
         <!-- Tambahkan komponen Button -->
         <!-- : itu sama dengan v-bind -->
-        <Button 
+        <Button
+        v-show="homePage" 
         @btn-click="$emit('show-tasks')"
         :text="showAddStatus ? 'Tutup' : 'Tambah' " 
         :btnBg=" showAddStatus ? 'bg-red-500' : 'bg-green-500' " 
@@ -21,6 +22,16 @@ export default {
     components: {
         // Deklarasi file Button
         Button,
+    },
+    computed: {
+        homePage(){
+            // Kalau router path = /
+            if(this.$route.path === '/'){
+                return true 
+            } else {
+                return false
+            }
+        }
     },
     emits: ['show-tasks'],
 

@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Nyuci",
+      "day": "2 hari sekali",
+      "reminder": true
+    },
+    {
+      "id": 2,
+      "text": "Bajua",
+      "day": "5 hari sekali",
+      "reminder": true
+    },
+    {
+      "id": 3,
+      "text": "Testing",
+      "day": "Setiap hari",
+      "reminder": true
+    }
+  ]
+}

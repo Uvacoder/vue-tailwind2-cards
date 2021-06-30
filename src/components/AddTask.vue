@@ -40,9 +40,6 @@ export default {
                 return
             }
             const newTask = {
-                // Kasih id random :v 
-                id: Math.floor(Math.random() * 100000),
-
                 // Masukkan data ke variabel
                 text: this.task,
                 day: this.time,
