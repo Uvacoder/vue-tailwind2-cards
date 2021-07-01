@@ -1,9 +1,17 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import About from '../views/About.vue'
-import Home from '../views/Home.vue'
+import ToDoList from '../views/ToDoList.vue'
+import Front from '../views/Front.vue'
+import Switching from '../views/myanimeasia/Switcher.vue'
 
 const routes = [
     // Route untuk about
+    {
+        path: '/',
+        name: 'Front',
+        // nama komponen yang di import
+        component: Front,
+    },
     {
         path: '/about',
         name: 'About',
@@ -12,10 +20,15 @@ const routes = [
     },
     // Route Untuk Home
     {
-        path: '/home',
-        name: 'Home',
+        path: '/ToDoList',
+        name: 'ToDoList',
         // nama komponen yang di import
-        component: Home,
+        component: ToDoList,
+    },
+    {
+        path: '/myponyasia',
+        name: 'myponyasia',
+        component: Switching,
     },
 ]
 
