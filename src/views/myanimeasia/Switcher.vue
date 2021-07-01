@@ -8,11 +8,10 @@
                 </div>
             
             <!-- Content -->
-                <div class="flex justify-between items-center text-center font-bold flex-col lg:flex-row 
-                        space-y-7 mt-7 space-x-0 px-14
+                <div class="flex flex-col justify-between items-center text-center font-bold  space-y-7 mt-7 space-x-0 px-14 
                         sm:px-28 sm:text-2xl
                         md:text-3xl
-                        lg:space-y-0 lg:space-x-16 lg:px-24 lg:mt-10 lg:text-4xl">
+                        lg:space-y-0 lg:space-x-16 lg:px-24 lg:mt-10 lg:text-4xl lg:flex-row">
                     <a href="#">
                         <img class="rounded-xl hover:opacity-25 duration-200 shadow-xl transform hover:rotate-3" src="../../assets/landscape1.png" alt="Thumbnail"/>
                         <span> My Little Pony </span>
@@ -23,7 +22,6 @@
                     </a>
                 </div>
         </div>
-
   </div>
 </template>
 

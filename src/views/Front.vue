@@ -1,6 +1,29 @@
 <template>
-  <div class="">
-    <router-link to="/myponyasia">MyPonyAsia</router-link>
+  <div class="bg-trueGray-800 w-screen h-screen text-gray-100">
+    <div class="container mx-auto pt-10">
+
+      <div class="mb-10 text-center space-y-3">
+        <span class="text-3xl font-bold">MyPonyAsia</span>
+        <div class="grid grid-cols-4 gap-9 font-bold justify-items-center">
+            <router-link to="/myponyasia" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">Switcher</router-link>
+            <router-link to="/#" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">???</router-link>
+            <router-link to="/#" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">???</router-link>
+            <router-link to="/#" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">???</router-link>
+        </div> 
+      </div>
+
+      <div class="my-10 text-center space-y-3">
+        <span class="text-3xl font-bold">Admin Template</span>
+        <div class="grid grid-cols-4 gap-9 font-bold justify-items-center">
+            <router-link to="/#" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">???</router-link>
+            <router-link to="/#" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">???</router-link>
+            <router-link to="/#" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">???</router-link>
+            <router-link to="/#" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">???</router-link>
+        </div> 
+      </div>
+
+    </div>
+
   </div>
 </template>
 
