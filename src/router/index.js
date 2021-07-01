@@ -2,7 +2,9 @@ import {createRouter, createWebHistory} from 'vue-router'
 import About from '../views/About.vue'
 import ToDoList from '../views/ToDoList.vue'
 import Front from '../views/Front.vue'
-import Switching from '../views/myanimeasia/Switcher.vue'
+
+import MyPonyAsiaSwitching from '../views/myponyasia/Switcher.vue'
+import MyPonyAsiaHome from '../views/myponyasia/Home.vue'
 
 const routes = [
     // Route untuk about
@@ -27,8 +29,13 @@ const routes = [
     },
     {
         path: '/myponyasia',
-        name: 'myponyasia',
-        component: Switching,
+        name: 'MyPonyAsiaSwitching',
+        component: MyPonyAsiaSwitching,
+    },
+    {
+        path: '/myponyasia/home',
+        name: 'MyPonyAsiaHome',
+        component: MyPonyAsiaHome,
     },
 ]
 
