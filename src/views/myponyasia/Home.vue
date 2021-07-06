@@ -69,7 +69,7 @@
                     </div>
 
                     <div className="p-4 mt-5">
-                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 justify-items-center">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-5 justify-items-center space-x-3">
                             <!-- Card, Max 5 -->
                             <a className="p-2 flex flex-col w-44 md:w-52 bg-black bg-opacity-25 hover:shadow-lg rounded-xl hover:opacity-50 duration-200" href="/myAnimeAsia/detail">
                                 <img className="rounded-xl" src="../../assets/images/myponyasia/otaku-anime.jpg" alt="Poster"/>
