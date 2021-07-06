@@ -27,15 +27,24 @@ const routes = [
         // nama komponen yang di import
         component: ToDoList,
     },
+
+    // MyPonyAsia Links
     {
         path: '/myponyasia',
         name: 'MyPonyAsiaSwitching',
         component: MyPonyAsiaSwitching,
-    },
-    {
-        path: '/myponyasia/home',
-        name: 'MyPonyAsiaHome',
-        component: MyPonyAsiaHome,
+        children: [
+          {
+            path: '/myponyasia/home',
+            name: 'MyPonyAsiaHome',
+            component: MyPonyAsiaHome,
+          },
+          {
+            path: '/myponyasia/home',
+            name: 'MyPonyAsiaHome',
+            component: MyPonyAsiaHome,
+          },
+        ]
     },
 ]
 
