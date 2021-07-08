@@ -7,15 +7,16 @@
         <div class="grid grid-cols-4 gap-9 font-bold justify-items-center">
             <router-link to="/myponyasia" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">Switcher</router-link>
             <router-link to="/myponyasia/home" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Main Page </router-link>
-            <router-link to="/#" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> ??? </router-link>
-            <router-link to="/#" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> ??? </router-link>
+            <router-link to="/myponyasia/anime" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Anime Page </router-link>
+            <router-link to="/myponyasia/streaming" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Streaming Page </router-link>
         </div> 
       </div>
 
       <div class="my-10 text-center space-y-3">
         <span class="text-3xl font-bold capitalize">Admin Template</span>
         <div class="grid grid-cols-4 gap-9 font-bold justify-items-center">
-            <router-link to="/#" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">???</router-link>
+            <router-link to="/admin1" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Admin 1 </router-link>
+            <router-link to="/admin2" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Admin 2 </router-link>
         </div> 
       </div>
 
