@@ -7,6 +7,7 @@
         <div class="grid grid-cols-4 gap-9 font-bold justify-items-center">
             <router-link to="/myponyasia" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">Switcher</router-link>
             <router-link to="/myponyasia/home" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Main Page </router-link>
+            <router-link to="/myponyasia/anime2" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Anime Page V2</router-link>
             <router-link to="/myponyasia/anime" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Anime Page </router-link>
             <router-link to="/myponyasia/streaming" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Streaming Page </router-link>
         </div> 
