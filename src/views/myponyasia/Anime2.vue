@@ -11,26 +11,24 @@
     <!-- End Navbar -->
 
     <!-- Main -->
-    <div>
-      <!-- Parralax -->
-      <!-- <div class="w-screen bg-blue-500">
-        <img class="bg-auto h-52 w-full" src="../../assets/images/myponyasia/otaku-anime.jpg" alt="Poster">
-      </div> -->
-      <div class="flex w-full bg-black h-72">
-          <img class="min-w-full max-w-full h-full object-cover" src="../../assets/images/myponyasia/otaku-anime.jpg" alt="Corousel"/>
+    <section>
+      <!-- Blurr goes brrrr -->
+      <div class="flex min-w-screen max-w-full h-72 z-0">
+          <img class="min-w-full max-w-full h-full object-cover blur-sm" src="../../assets/images/myponyasia/poster-portrait.webp" alt="Background"/>
       </div>
-      <!-- End Parralax -->
+      <!-- Blurr goes brrrr -->
 
       <!-- Content -->
-      <div class="flex justify-between container mx-auto mt-5">
+      <div class="flex justify-between mx-40 mt-5">
 
         <!-- Left Content -->
-        <div class="w-[25%] flex flex-col mb-5">
-          <img src="../../assets/images/myponyasia/otaku-anime.jpg" alt="Poster" class="-mt-56 mb-5 w-[90%]">
-          <a href="#" class="p-2 px-10 bg-blue-500 hover:bg-blue-700 duration-150 rounded-lg text-center font-semibold w-[90%]">Streaming</a>
+        <div class="w-[25%] flex flex-col mb-5 z-10">
+          <img src="../../assets/images/myponyasia/poster-portrait.webp" alt="Poster" class="-mt-56 mb-5 w-[90%] rounded-md">
+          <a href="#" class="p-2 px-10 bg-trueGray-600 hover:bg-blue-500 duration-150 rounded-lg text-center font-semibold w-[90%]">Streaming</a>
         <div class="border-b-2 border-trueGray-700 my-5 w-[90%]"></div>
-          <a href="#" class="p-2 px-10 bg-blue-500 hover:bg-blue-700 duration-150 rounded-lg text-center font-semibold w-[90%]">...More</a>
+          <a href="#" class="p-2 px-10 bg-trueGray-600 hover:bg-blue-500 duration-150 rounded-lg text-center font-semibold w-[90%]">More</a>
         </div>
+        
         <!-- End Left Content -->
 
         <!-- Right Content -->
@@ -38,7 +36,7 @@
 
           <!-- Title -->
           <div class="flex space-x-2 items-center">
-            <span class="text-xl font-bold cursor-default capitalize"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, sint.</span>
+            <span class="text-xl font-bold cursor-default capitalize"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus, aut aperiam amet voluptas vel sed ullam qui dignissimos impedit illum.</span>
           </div>
           <!-- End Title -->
 
@@ -47,24 +45,23 @@
           <!-- End Second title -->
 
           <!-- Status -->
-          <div class="flex space-x-2 items-center mt-5">
+          <div class="flex space-x-3 items-center mt-5 font-bold cursor-default">
 
             <!-- First -->
-            <div class="">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-4 text-green-500 p-0.5 bg-trueGray-100 rounded-full">
-              <circle cx="8" cy="8" r="8"/>
-            </svg>
+            <div class="flex items-center space-x-1 p-1.5 bg-trueGray-600 rounded-xl px-3 text-sm">
+              <span>TV</span>
             </div>
-            <span class="font-semibold cursor-default">TV</span>
             <!-- End First -->
 
             <!-- Second -->
+            <div class="flex items-center space-x-2 p-1.5 bg-trueGray-600 rounded-xl px-3 text-sm">
             <div>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-4 text-purple-500 p-0.5 bg-trueGray-100 rounded-full ml-5">
-              <circle cx="8" cy="8" r="8"/>
-            </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-4 text-green-500 rounded-full">
+                <circle cx="8" cy="8" r="8"/>
+              </svg>
             </div>
-            <span class="font-semibold cursor-default">OnGoing</span>
+            <span>OnGoing</span>
+            </div>
             <!-- End Second -->
 
           </div>
@@ -72,73 +69,70 @@
 
           <!-- Switch -->
           <div class="flex">
-            <div class="bg-trueGray-700 mt-5 rounded-lg">
-              <button @click="switcher('info')" :class="[isOpen == 'info' ? 'bg-blue-500' : '']" class="p-1 px-5 hover:bg-blue-500 duration-200 active:bg-blue-500 rounded-l-lg font-semibold">Info</button>
-              <button @click="switcher('episode')" :class="[isOpen == 'episode' ? 'bg-blue-500' : '']" class="p-1 px-5 hover:bg-blue-500 duration-200 rounded-r-lg font-semibold">Episode</button>
+            <div class="bg-trueGray-600 mt-5 rounded-lg divide-x-4 divide-trueGray-600">
+              <button @click="switcher = 'info'" :class="[switcher == 'info' ? 'bg-blue-500' : '']" class="p-1 px-5 hover:bg-blue-500 duration-200 active:bg-blue-500 rounded-l-lg font-semibold">Info</button>
+              <button @click="switcher = 'episode'" :class="[switcher == 'episode' ? 'bg-blue-500' : '']" class="p-1 px-5 hover:bg-blue-500 duration-200 font-semibold">Episode</button>
+              <button @click="switcher = 'trailer'" :class="[switcher == 'trailer' ? 'bg-blue-500' : '']" class="p-1 px-5 hover:bg-blue-500 duration-200 rounded-r-lg font-semibold">Trailer</button>
             </div>
           </div>
           <!-- End Switch -->
 
           <!-- Info -->
-          <div v-if="isOpen == 'info'">
-            <div class="mt-5 ">
+          <div v-if="switcher == 'info'" class="mt-5 space-y-4">
+            <!-- Synopsis  -->
+            <div class="space-y-3">
               <span class="text-xl font-bold cursor-default">Synopsis</span>
-              <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima eligendi cum, iusto ratione nesciunt, illo veniam corrupti inventore accusantium pariatur laboriosam quisquam architecto saepe ut mollitia autem sit omnis debitis, eos nam cumque asperiores nulla dolorum ad. Sunt totam maiores vitae, consequatur nostrum quas? Optio assumenda commodi officia voluptatibus mollitia?</p>
+              <div v-html="sinopsis" class="space-y-3"></div>
             </div>
-            <div class="mt-5">
+            <!-- End Synopsis  -->
+
+            <!-- Genres -->
+            <div class="space-y-3">
               <span class="text-xl font-bold cursor-default">Genres</span>
-              <div class="flex mt-2 space-x-5">
+              <div class="flex space-x-5">
                 <a href="#" class="p-1.5 px-3 bg-trueGray-600 hover:bg-blue-500 duration-200 rounded-lg font-semibold capitalize">Romance</a>
                 <a href="#" class="p-1.5 px-3 bg-trueGray-600 hover:bg-blue-500 duration-200 rounded-lg font-semibold capitalize">Comedy</a>
                 <a href="#" class="p-1.5 px-3 bg-trueGray-600 hover:bg-blue-500 duration-200 rounded-lg font-semibold capitalize">Gabut Life</a>
               </div>
             </div>
+            <!-- End Genres -->
           </div>
           <!-- End Info -->
 
           <!-- Episodes -->
-          <div v-if="isOpen == 'episode'" class="mt-4">
+          <div v-if="switcher == 'episode'" class="mt-5 space-y-5">
 
             <!-- Episode -->
             <div class="my-2">
               <Disclosure v-slot="{ open }">
                 <DisclosureButton
-                  class="flex justify-between w-1/2 px-4 py-2 bg-trueGray-600 rounded-lg hover:bg-trueGray-600 focus:outline-none"
+                  class="flex justify-between w-[75%] px-4 py-2 bg-trueGray-600 rounded-lg hover:bg-blue-500 duration-200 focus:outline-none outline-none"
                 >
-                  <span class="font-semibold">Episode 1</span>
+                  <span class="font-semibold">Episode 1 • yesterday</span>
                   <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" :class="open ? 'rotate-180' : '' " class="w-5 ease-out duration-200" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
                   </svg>
                 </DisclosureButton>
-                <transition
-                  enter-active-class="duration-150 ease-in"
-                  enter-from-class="-translate-y-4 opacity-0"
-                  enter-to-class="translate-y-4 opacity-50"
-                  leave-active-class="duration-150 ease-out"
-                  leave-from-class="translate-y-4 opacity-100"
-                  leave-to-class="-translate-y-4 opacity-0"
-                >
-                <DisclosurePanel class="px-4 py-4 text-white">
-                  <div class="space-y-4">
+                <DisclosurePanel class="px-4 py-2 text-white">
+                  <div class="space-y-2">
                     <p class="font-semibold">MKV</p>
                     <div class="grid grid-cols-4 gap-3 w-1/2 text-center">
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">1080p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">720p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">480p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">360p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">1080p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">720p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">480p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">360p</a>
                     </div>
 
-                    <p class="font-semibold">MP4</p>
+                    <p class="font-semibold pt-2">MP4</p>
                     <div class="grid grid-cols-4 gap-3 w-1/2 text-center">
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">1080p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">720p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">480p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">360p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">1080p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">720p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">480p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">360p</a>
                     </div>
 
                   </div>
                 </DisclosurePanel>
-                </transition>
               </Disclosure>
             </div>
             <!-- End Episode -->
@@ -146,142 +140,111 @@
             <div class="my-2">
               <Disclosure v-slot="{ open }">
                 <DisclosureButton
-                  class="flex justify-between w-1/2 px-4 py-2 bg-trueGray-600 rounded-lg hover:bg-trueGray-600 focus:outline-none"
+                  class="flex justify-between w-[75%] px-4 py-2 bg-trueGray-600 rounded-lg hover:bg-blue-500 duration-200 focus:outline-none outline-none"
                 >
-                  <span class="font-semibold">Episode 1</span>
+                  <span class="font-semibold">Episode 1 • yesterday</span>
                   <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" :class="open ? 'rotate-180' : '' " class="w-5 ease-out duration-200" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
                   </svg>
                 </DisclosureButton>
-                <transition
-                  enter-active-class="duration-150 ease-in"
-                  enter-from-class="-translate-y-4 opacity-0"
-                  enter-to-class="translate-y-4 opacity-50"
-                  leave-active-class="duration-150 ease-out"
-                  leave-from-class="translate-y-4 opacity-100"
-                  leave-to-class="-translate-y-4 opacity-0"
-                >
-                <DisclosurePanel class="px-4 py-4 text-white">
-                  <div class="space-y-4">
+                <DisclosurePanel class="px-4 py-2 text-white">
+                  <div class="space-y-2">
                     <p class="font-semibold">MKV</p>
                     <div class="grid grid-cols-4 gap-3 w-1/2 text-center">
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">1080p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">720p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">480p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">360p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">1080p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">720p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">480p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">360p</a>
                     </div>
 
-                    <p class="font-semibold">MP4</p>
+                    <p class="font-semibold pt-2">MP4</p>
                     <div class="grid grid-cols-4 gap-3 w-1/2 text-center">
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">1080p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">720p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">480p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">360p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">1080p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">720p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">480p</a>
+                      <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">360p</a>
                     </div>
 
                   </div>
                 </DisclosurePanel>
-                </transition>
-              </Disclosure>
-            </div>
-            <!-- End Episode -->
-            <!-- Episode -->
-            <div class="my-2">
-              <Disclosure v-slot="{ open }">
-                <DisclosureButton
-                  class="flex justify-between w-1/2 px-4 py-2 bg-trueGray-600 rounded-lg hover:bg-trueGray-600 focus:outline-none"
-                >
-                  <span class="font-semibold">Episode 1</span>
-                  <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" :class="open ? 'rotate-180' : '' " class="w-5 ease-out duration-200" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                  </svg>
-                </DisclosureButton>
-                <transition
-                  enter-active-class="duration-150 ease-in"
-                  enter-from-class="-translate-y-4 opacity-0"
-                  enter-to-class="translate-y-4 opacity-50"
-                  leave-active-class="duration-150 ease-out"
-                  leave-from-class="translate-y-4 opacity-100"
-                  leave-to-class="-translate-y-4 opacity-0"
-                >
-                <DisclosurePanel class="px-4 py-4 text-white">
-                  <div class="space-y-4">
-                    <p class="font-semibold">MKV</p>
-                    <div class="grid grid-cols-4 gap-3 w-1/2 text-center">
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">1080p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">720p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">480p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">360p</a>
-                    </div>
-
-                    <p class="font-semibold">MP4</p>
-                    <div class="grid grid-cols-4 gap-3 w-1/2 text-center">
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">1080p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">720p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">480p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">360p</a>
-                    </div>
-
-                  </div>
-                </DisclosurePanel>
-                </transition>
-              </Disclosure>
-            </div>
-            <!-- End Episode -->
-            <!-- Episode -->
-            <div class="my-2">
-              <Disclosure v-slot="{ open }">
-                <DisclosureButton
-                  class="flex justify-between w-1/2 px-4 py-2 bg-trueGray-600 rounded-lg hover:bg-trueGray-600 focus:outline-none"
-                >
-                  <span class="font-semibold">Episode 1</span>
-                  <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" :class="open ? 'rotate-180' : '' " class="w-5 ease-out duration-200" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                  </svg>
-                </DisclosureButton>
-                <transition
-                  enter-active-class="duration-150 ease-in"
-                  enter-from-class="-translate-y-4 opacity-0"
-                  enter-to-class="translate-y-4 opacity-50"
-                  leave-active-class="duration-150 ease-out"
-                  leave-from-class="translate-y-4 opacity-100"
-                  leave-to-class="-translate-y-4 opacity-0"
-                >
-                <DisclosurePanel class="px-4 py-4 text-white">
-                  <div class="space-y-4">
-                    <p class="font-semibold">MKV</p>
-                    <div class="grid grid-cols-4 gap-3 w-1/2 text-center">
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">1080p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">720p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">480p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">360p</a>
-                    </div>
-
-                    <p class="font-semibold">MP4</p>
-                    <div class="grid grid-cols-4 gap-3 w-1/2 text-center">
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">1080p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">720p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">480p</a>
-                      <a href="#" class="p-1.5 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 duration-200">360p</a>
-                    </div>
-
-                  </div>
-                </DisclosurePanel>
-                </transition>
               </Disclosure>
             </div>
             <!-- End Episode -->
 
           </div>
           <!-- End Episodes -->
-          
+
+          <!-- Info -->
+          <div v-if="switcher == 'trailer'" class="mt-5 space-y-5">
+            <div>
+              <span class="text-xl font-bold cursor-default">Trailer</span>
+            </div>
+            <!-- Trailers Grid -->
+            <div class="grid grid-cols-3 gap-5">
+              <!-- Trailer -->
+              
+              <div @click="trailerData = 'https://www.youtube.com/embed/9Lq9PfHsMkU'; trailerModal = true" class="relative flex group cursor-pointer">
+                <img src="../../assets/images/myponyasia/landscape1.png" alt="Trailer Thumbnail" class="rounded-lg group-hover:opacity-40 duration-150">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute w-full h-full p-5 opacity-0 group-hover:opacity-80 duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <!-- End Trailer -->
+              <!-- Trailer -->
+              <div @click="trailerData = 'https://www.youtube.com/embed/6bNbIVDPWCw'; trailerModal = true" class="relative flex group cursor-pointer">
+                <img src="../../assets/images/myponyasia/landscape1.png" alt="Trailer Thumbnail" class="rounded-lg group-hover:opacity-40 duration-150">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute w-full h-full p-5 opacity-0 group-hover:opacity-80 duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <!-- End Trailer -->
+              <!-- Trailer -->
+              <div class="relative flex group cursor-pointer">
+                <img src="../../assets/images/myponyasia/landscape1.png" alt="Trailer Thumbnail" class="rounded-lg group-hover:opacity-40 duration-150">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute w-full h-full p-5 opacity-0 group-hover:opacity-80 duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <!-- End Trailer -->
+              <!-- Trailer -->
+              <div class="relative flex group cursor-pointer">
+                <img src="../../assets/images/myponyasia/landscape1.png" alt="Trailer Thumbnail" class="rounded-lg group-hover:opacity-40 duration-150">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute w-full h-full p-5 opacity-0 group-hover:opacity-80 duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <!-- End Trailer -->
+            </div>
+            <!-- End Trailers Grid -->
+
+            <!-- Trailer Modal -->
+            <div v-show="trailerModal == true">
+              <div class="z-50 fixed inset-0 w-full h-full bg-black bg-opacity-70 flex justify-center items-center overflow-y-visible pt-5 bg-trueGray-800">
+                <!-- Ntah kenapa kaga bisa di close, kau aja yang buat pak :v  -->
+                <button @click="trailerModal = trailerModal = false" class="absolute -mt-96">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 hover:opacity-60 duration-150" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </button>
+                <iframe width="630" height="385" :src="trailerData" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg bg-trueGray-800 p-3 shadow-xl"></iframe>
+              </div>
+            </div>
+            <!-- End Trailer Modal -->
+
+          </div>
+          <!-- End Info -->
+
         </div>
         <!-- End Right Content -->
 
       </div>
       <!-- End Content -->
       
-    </div>
+    </section>
     <!-- Main -->
 
     <!-- Footer -->
@@ -312,41 +275,51 @@
 
 <script>
 import {Disclosure,DisclosureButton,DisclosurePanel} from '@headlessui/vue'
+import {ref} from 'vue'
 export default {
   components: { 
     Disclosure, 
     DisclosureButton, 
     DisclosurePanel,
   },
-
-  data() {
-    return {
-      isOpen: 'info',
-    }
-  },
-
-  methods: {
-    switcher(data){
-      this.isOpen = data
-    }
-  },
   
-
-
-  // setup(){
+  setup(){
     
-  //   const isOpen = 'Info';
+    const switcher = ref('info');
 
-  //   function switcher(data) {
-  //     console.log(data);
-  //     // return this.isOpen = dataSwitcher
-  //   }
+    // Cukup p aja :v kaga usah pake class lagi
+    const sinopsis = ref(`<p>Kimizuka Kimihiko is a crisis-magnet. From getting caught up in a crime scene to
+              accidentally witnessing a drug deal, trouble seems to find him around every corner. So it is no surprise
+              when his rather mundane flight suddenly enters a state of emergency with a dire need of a detective
+              onboard. Unfortunately, his attempt at avoiding trouble is foiled by a beautiful girl with silver hair who
+              goes by the codename Siesta. Declaring herself a detective, she unceremoniously drags Kimizuka into the
+              case as her assistant.</p>
+            <p>That incident spelled the beginning of an adventure around the globe that went beyond his
+              wildest imagination. Putting their lives on the line, the two took down criminal organizations, prevented
+              disasters, and saved thousands. But the curtain closed to their epic journey with Siesta's untimely death
+              three years later.</p>
+            <p>Resolving to live an ordinary high school life this time, Kimizuka spends a year maintaining
+              a low profile. However, as fate would have it, a girl with an uncanny resemblance to Siesta comes crashing
+              into his life, threatening to throw his peaceful days into disarray.</p>
+            `);
 
-  //   return {
-  //     isOpen,
-  //     switcher
-  //   }
-  // }
+    const trailerModal = false;
+    const trailerData = ref('');
+
+    const testing = function(){
+      console.log("yay berhasil :v")
+    }
+
+    return {
+      testing,
+      switcher,
+
+      sinopsis,
+
+      trailerData,
+      trailerModal,
+    }
+  }
 }
 </script>
 
