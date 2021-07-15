@@ -171,14 +171,44 @@
             </div>
             <!-- End Episode -->
 
+            <!-- Loading State Episode -->
+            <div class="my-2">
+                <button
+                  class="flex justify-between w-[75%] px-4 py-2 bg-trueGray-600 rounded-lg animate-pulse"
+                >
+                  <div class="font-semibold"> 
+                    <span class="bg-blue-500 px-3 text-blue-500 rounded-full">Episode 1</span> 
+                    • 
+                    <span class="bg-blue-500 px-3 text-blue-500 rounded-full">yesterday</span>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" :class="open ? 'rotate-180' : '' " class="w-5 ease-out duration-200" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                  </svg>
+                </button>
+            </div>
+            <!-- End Loading State Episode -->
+            <!-- Loading State Episode -->
+            <div class="my-2">
+                <button
+                  class="flex justify-between w-[75%] px-4 py-2 bg-trueGray-600 rounded-lg animate-pulse"
+                >
+                  <div class="font-semibold"> 
+                    <span class="bg-trueGray-500 px-3 text-trueGray-500 rounded-full">Episode 1</span> 
+                    • 
+                    <span class="bg-trueGray-500 px-3 text-trueGray-500 rounded-full">yesterday</span>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" :class="open ? 'rotate-180' : '' " class="w-5 ease-out duration-200" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                  </svg>
+                </button>
+            </div>
+            <!-- End Loading State Episode -->
+
           </div>
           <!-- End Episodes -->
 
-          <!-- Info -->
+          <!-- Trailer -->
           <div v-if="switcher == 'trailer'" class="mt-5 space-y-5">
-            <div>
-              <span class="text-xl font-bold cursor-default">Trailer</span>
-            </div>
             <!-- Trailers Grid -->
             <div class="grid grid-cols-3 gap-5">
               <!-- Trailer -->
@@ -188,6 +218,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
+                <span class="absolute bottom-0 bg-blue-500 font-semibold p-1.5 rounded-tr-lg text-sm">PV 1</span>
               </div>
               <!-- End Trailer -->
               <!-- Trailer -->
@@ -197,6 +228,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
+                <span class="absolute bottom-0 bg-blue-500 font-semibold p-1.5 rounded-tr-lg text-sm">PV 3</span>
               </div>
               <!-- End Trailer -->
               <!-- Trailer -->
@@ -206,6 +238,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
+                <span class="absolute bottom-0 bg-blue-500 font-semibold p-1.5 rounded-tr-lg text-sm shadow-xl">PV 4</span>
               </div>
               <!-- End Trailer -->
               <!-- Trailer -->
@@ -215,6 +248,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
+                <span class="absolute bottom-0 bg-blue-500 font-semibold p-1.5 rounded-tr-lg text-sm">PV 5</span>
               </div>
               <!-- End Trailer -->
             </div>
@@ -235,7 +269,7 @@
             <!-- End Trailer Modal -->
 
           </div>
-          <!-- End Info -->
+          <!-- End Trailer -->
 
         </div>
         <!-- End Right Content -->
