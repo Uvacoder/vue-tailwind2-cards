@@ -182,7 +182,6 @@
             <!-- Trailers Grid -->
             <div class="grid grid-cols-3 gap-5">
               <!-- Trailer -->
-              
               <div @click="trailerData = 'https://www.youtube.com/embed/9Lq9PfHsMkU'; trailerModal = true" class="relative flex group cursor-pointer">
                 <img src="../../assets/images/myponyasia/landscape1.png" alt="Trailer Thumbnail" class="rounded-lg group-hover:opacity-40 duration-150">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute w-full h-full p-5 opacity-0 group-hover:opacity-80 duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -201,7 +200,7 @@
               </div>
               <!-- End Trailer -->
               <!-- Trailer -->
-              <div class="relative flex group cursor-pointer">
+              <div @click="trailerData = 'https://www.youtube.com/embed/JXlAmWPxHO0'; trailerModal = true" class="relative flex group cursor-pointer">
                 <img src="../../assets/images/myponyasia/landscape1.png" alt="Trailer Thumbnail" class="rounded-lg group-hover:opacity-40 duration-150">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute w-full h-full p-5 opacity-0 group-hover:opacity-80 duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
@@ -210,7 +209,7 @@
               </div>
               <!-- End Trailer -->
               <!-- Trailer -->
-              <div class="relative flex group cursor-pointer">
+              <div @click="trailerData = 'https://www.youtube.com/embed/TgziSpBVmEk'; trailerModal = true" class="relative flex group cursor-pointer">
                 <img src="../../assets/images/myponyasia/landscape1.png" alt="Trailer Thumbnail" class="rounded-lg group-hover:opacity-40 duration-150">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute w-full h-full p-5 opacity-0 group-hover:opacity-80 duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
