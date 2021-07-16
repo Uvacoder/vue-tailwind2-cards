@@ -41,7 +41,7 @@
             <!-- End Title -->
 
             <!-- Title Skeleton -->
-            <div v-show="loadingState == true" class="w-[350px] md:w-[550px] lg:w-[700px] h-6 bg-trueGray-600 rounded-full animate-pulse"></div>
+            <div v-show="loadingState == true" class="w-[300px] md:w-[550px] lg:w-[700px] h-6 bg-trueGray-600 rounded-full animate-pulse"></div>
             <!-- End Title Skeleton -->
 
             <!-- Second title -->
@@ -49,7 +49,7 @@
             <!-- End Second title -->
 
             <!-- Second Title Skeleton -->
-            <div v-show="loadingState == true" class="w-[290px] md:w-[400px] lg:w-[600px] h-5 bg-trueGray-600 rounded-full animate-pulse mt-3"></div>
+            <div v-show="loadingState == true" class="w-[260px] md:w-[400px] lg:w-[600px] h-5 bg-trueGray-600 rounded-full animate-pulse mt-3"></div>
             <!-- End Second Title Skeleton -->
             
             <!-- Status -->
@@ -154,7 +154,7 @@
 
             <!-- Switch -->
             <div class="flex justify-center lg:justify-start">
-              <div class="bg-trueGray-600 mt-3 lg:mt-5 rounded-lg divide-x-4 divide-trueGray-600">
+              <div class="grid grid-cols-3 md:flex bg-trueGray-600 mt-3 lg:mt-5 rounded-lg divide-x-4 divide-trueGray-600">
                 <button @click="switcher = 'info'" :class="[switcher == 'info' ? 'bg-blue-500' : '']" class="p-1 px-7 md:px-14 lg:px-5 hover:bg-blue-500 duration-200 active:bg-blue-500 rounded-l-lg font-semibold">Info</button>
                 <button @click="switcher = 'episode'" :class="[switcher == 'episode' ? 'bg-blue-500' : '']" class="p-1 px-7 md:px-14 lg:px-5 hover:bg-blue-500 duration-200 font-semibold">Episode</button>
                 <button @click="switcher = 'trailer'" :class="[switcher == 'trailer' ? 'bg-blue-500' : '']" class="p-1 px-7 md:px-14 lg:px-5 hover:bg-blue-500 duration-200 rounded-r-lg font-semibold">Trailer</button>
@@ -182,11 +182,11 @@
               <!-- Synopsis Skeleton -->
               <div v-show="loadingState == true" class="flex flex-col">
                 <div class="space-y-2 animate-pulse">
-                  <div class="md:w-[550px] lg:w-[700px] h-4 bg-trueGray-600 rounded-lg"></div>
-                  <div class="md:w-[520px] lg:w-[600px] h-4 bg-trueGray-600 rounded-lg"></div>
-                  <div class="md:w-[540px] lg:w-[650px] h-4 bg-trueGray-600 rounded-lg"></div>
-                  <div class="md:w-[510px] lg:w-[500px] h-4 bg-trueGray-600 rounded-lg"></div>
-                  <div class="md:w-[550px] lg:w-[675px] h-4 bg-trueGray-600 rounded-lg"></div>
+                  <div class="w-[300px] md:w-[550px] lg:w-[700px] h-4 bg-trueGray-600 rounded-lg"></div>
+                  <div class="w-[250px] md:w-[520px] lg:w-[600px] h-4 bg-trueGray-600 rounded-lg"></div>
+                  <div class="w-[270px] md:w-[540px] lg:w-[650px] h-4 bg-trueGray-600 rounded-lg"></div>
+                  <div class="w-[220px] md:w-[510px] lg:w-[500px] h-4 bg-trueGray-600 rounded-lg"></div>
+                  <div class="w-[250px] md:w-[550px] lg:w-[675px] h-4 bg-trueGray-600 rounded-lg"></div>
                 </div>
               </div>
               <!-- End Synopsis Skeleton -->
@@ -195,13 +195,13 @@
               <div class="space-y-3">
                 <span class="text-xl font-bold cursor-default">Genres</span>
                 <!-- Genre -->
-                <div v-show="loadingState == false" class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 text-center">
-                  <a href="#" class=" p-1.5 px-3 bg-trueGray-600 hover:bg-blue-500 duration-200 rounded-lg font-semibold capitalize">Romance</a>
-                  <a href="#" class="p-1.5 px-3 bg-trueGray-600 hover:bg-blue-500 duration-200 rounded-lg font-semibold capitalize">Slice Of Life</a>
-                  <a href="#" class="p-1.5 px-3 bg-trueGray-600 hover:bg-blue-500 duration-200 rounded-lg font-semibold capitalize">Comedy</a>
-                  <a href="#" class="p-1.5 px-3 bg-trueGray-600 hover:bg-blue-500 duration-200 rounded-lg font-semibold capitalize">Comedy</a>
-                  <a href="#" class="p-1.5 px-3 bg-trueGray-600 hover:bg-blue-500 duration-200 rounded-lg font-semibold capitalize">Comedy</a>
-                  <a href="#" class="p-1.5 px-3 bg-trueGray-600 hover:bg-blue-500 duration-200 rounded-lg font-semibold capitalize">Comedy</a>
+                <div v-show="loadingState == false" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 text-center">
+                  <a href="#" class="p-1.5 px-3 bg-trueGray-600 hover:bg-blue-500 duration-200 rounded-lg md:text-base font-semibold capitalize">Romance</a>
+                  <a href="#" class="p-1.5 px-3 bg-trueGray-600 hover:bg-blue-500 duration-200 rounded-lg md:text-base font-semibold capitalize">Slice Of Life</a>
+                  <a href="#" class="p-1.5 px-3 bg-trueGray-600 hover:bg-blue-500 duration-200 rounded-lg md:text-base font-semibold capitalize">Comedy</a>
+                  <a href="#" class="p-1.5 px-3 bg-trueGray-600 hover:bg-blue-500 duration-200 rounded-lg md:text-base font-semibold capitalize">Comedy</a>
+                  <a href="#" class="p-1.5 px-3 bg-trueGray-600 hover:bg-blue-500 duration-200 rounded-lg md:text-base font-semibold capitalize">Comedy</a>
+                  <a href="#" class="p-1.5 px-3 bg-trueGray-600 hover:bg-blue-500 duration-200 rounded-lg md:text-base font-semibold capitalize">Comedy</a>
                 </div>
                 <!-- Genre -->
 
@@ -287,28 +287,27 @@
                       <div class="space-y-2">
                         <p class="font-semibold">MKV</p>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 lg:w-[75%] text-center md:text-sm lg:text-base">
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">English 1080p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">English 720p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">English 480p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">English 360p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">Indonesia 1080p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">Indonesia 720p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">Indonesia 480p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">Indonesia 360p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">English 1080p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">English 720p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">English 480p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">English 360p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">Indonesia 1080p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">Indonesia 720p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">Indonesia 480p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">Indonesia 360p</a>
                         </div>
 
                         <p class="font-semibold pt-2">MP4</p>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 lg:w-[75%] text-center">
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">EN 1080p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">EN 720p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">EN 480p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">EN 360p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">ID 1080p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">ID 720p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">ID 480p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">ID 360p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">EN 1080p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">EN 720p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">EN 480p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">EN 360p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">ID 1080p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">ID 720p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">ID 480p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">ID 360p</a>
                         </div>
-
                       </div>
                     </DisclosurePanel>
                   </Disclosure>
@@ -329,26 +328,26 @@
                       <div class="space-y-2">
                         <p class="font-semibold">MKV</p>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 lg:w-[75%] text-center md:text-sm lg:text-base">
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">English 1080p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">English 720p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">English 480p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">English 360p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">Indonesia 1080p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">Indonesia 720p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">Indonesia 480p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">Indonesia 360p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">English 1080p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">English 720p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">English 480p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">English 360p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">Indonesia 1080p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">Indonesia 720p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">Indonesia 480p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">Indonesia 360p</a>
                         </div>
 
                         <p class="font-semibold pt-2">MP4</p>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 lg:w-[75%] text-center">
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">EN 1080p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">EN 720p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">EN 480p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">EN 360p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">ID 1080p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">ID 720p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">ID 480p</a>
-                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg font-semibold hover:bg-blue-500 duration-200">ID 360p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">EN 1080p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">EN 720p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">EN 480p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">EN 360p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">ID 1080p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">ID 720p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">ID 480p</a>
+                          <a href="#" class="p-1.5 bg-trueGray-600 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-500 duration-200">ID 360p</a>
                         </div>
 
                       </div>
