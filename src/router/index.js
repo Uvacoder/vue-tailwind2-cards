@@ -8,6 +8,7 @@ import MyPonyAsiaHome from '../views/myponyasia/Home.vue'
 import MyPonyAsiaAnime from '../views/myponyasia/Anime.vue'
 import MyPonyAsiaAnime2 from '../views/myponyasia/Anime2.vue'
 import MyPonyAsiaStreaming from '../views/myponyasia/Streaming.vue'
+import MyPonyAsiaStreaming2 from '../views/myponyasia/Streaming2.vue'
 
 import Admin1 from '../views/Admin/Admin1.vue'
 import Admin2 from '../views/Admin/Admin2.vue'
@@ -66,6 +67,11 @@ const routes = [
       path: '/myponyasia/streaming',
       name: 'MPAStreaming',
       component: MyPonyAsiaStreaming,
+    },
+    {
+      path: '/myponyasia/streaming2',
+      name: 'MPAStreaming2',
+      component: MyPonyAsiaStreaming2,
     },
     {
       path: '/myponyasia/anime',
