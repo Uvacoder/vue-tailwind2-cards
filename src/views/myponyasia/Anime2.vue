@@ -13,7 +13,7 @@
     <!-- Main -->
     <section>
       <!-- Blurr goes brrrr -->
-      <div class="flex min-w-screen max-w-full h-36 md:h-52 lg:h-72 z-0">
+      <div class="flex min-w-screen max-w-full h-48 md:h-64 lg:h-72 z-0">
           <img class="min-w-full max-w-full h-full object-cover blur-sm" src="../../assets/images/myponyasia/poster-portrait.webp" alt="Background"/>
       </div>
       <!-- Blurr goes brrrr -->
@@ -28,14 +28,13 @@
         <!-- Desktop Left Content & Ipad & Mobile Top Content -->
         <div class="w-full md:w-[90%] lg:w-[25%] flex flex-col items-center mb-5 z-10 mx-auto">
           <img src="../../assets/images/myponyasia/poster-portrait.webp" alt="Poster" 
-              class="  rounded-md -mt-20
-                    md:mb-2 md:w-[50%] md:-mt-40
+              class="rounded-md mb-3 -mt-40 
+                    md:mb-2 md:w-[50%] md:-mt-52
                     lg:w-[90%] lg:-mt-56 lg:mb-5">
           <!-- Only Ipad & Android view -->
           <div class="lg:hidden mb-5 space-y-3">
             <!-- Title -->
-            <div v-show="loadingState == false"
-                class="flex items-center">
+            <div v-show="loadingState == false" class="flex items-center">
               <span class="text-xl font-bold cursor-default capitalize md:mb-1"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus, aut aperiam amet voluptas vel sed ullam qui dignissimos impedit illum.</span>
             </div>
             <!-- End Title -->
@@ -455,7 +454,7 @@
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </button>
-                  <iframe width="630" height="385" :src="'https://www.youtube.com/embed/'+trailerId" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg bg-trueGray-800 p-3 shadow-xl mx-20"></iframe>
+                  <iframe width="" :src="'https://www.youtube.com/embed/'+trailerId" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg bg-trueGray-800 p-3 shadow-xl mx-20 w-[530px] h-[285px] md:w-[630px] md:h-[385px]"></iframe>
                 </div>
               </div>
               <!-- End Trailer Modal -->
