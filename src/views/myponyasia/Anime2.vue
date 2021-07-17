@@ -15,7 +15,6 @@
       <!-- Content -->
       <div class="flex flex-col mt-5
                 mx-5 justify-center
-                mx-7
                 md:mx-20 
                 lg:flex-row lg:justify-between lg:mx-40">
 
