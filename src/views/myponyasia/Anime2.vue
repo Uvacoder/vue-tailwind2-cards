@@ -1,19 +1,22 @@
 <template>
   <div class="bg-trueGray-800 min-h-screen max-h-full text-white">
     <!-- Navbar -->
-      <Header />
+      <Header
+      :LoadingStateProps = "loadingState ? true : false"
+      @loading-state = "loadingState = !loadingState"
+    />
     <!-- End Navbar -->
 
     <!-- Main -->
-    <section>
+    <main>
       <!-- Blurr goes brrrr -->
-      <div class="flex min-w-screen max-w-full h-48 md:h-64 lg:h-72 z-0">
+      <section class="flex min-w-screen max-w-full h-48 md:h-64 lg:h-72 z-0">
           <img class="min-w-full max-w-full h-full object-cover blur-sm" src="../../assets/images/myponyasia/poster-portrait.webp" alt="Background"/>
-      </div>
+      </section>
       <!-- Blurr goes brrrr -->
 
       <!-- Content -->
-      <div class="flex flex-col mt-5
+      <section class="flex flex-col mt-5
                 mx-5 justify-center
                 md:mx-20 
                 lg:flex-row lg:justify-between lg:mx-40">
@@ -82,7 +85,6 @@
           <a href="#" class="p-2 px-10 bg-trueGray-600 hover:bg-blue-700 duration-150 rounded-lg text-center font-semibold w-[100%] lg:w-[90%]">Streaming</a>
         <div class="border-b-2 border-trueGray-700 my-5 w-[100%] lg:w-[90%]"></div>
           <a href="#" class="p-2 px-10 bg-trueGray-600 hover:bg-blue-700 duration-150 rounded-lg text-center font-semibold w-[100%] lg:w-[90%]">More</a>
-          <button @click="loadingState = !loadingState" v-text="(loadingState == false) ? 'Loading State' : 'Normal State'" class="p-2 px-10 bg-trueGray-600 hover:bg-blue-700 duration-150 rounded-lg text-center font-semibold w-[100%] lg:w-[90%] mt-3"> </button>
         </div>
         <!-- End Left Content & Ipad & Mobile Top Content -->
 
@@ -266,68 +268,23 @@
                 <!-- Anime Cards -->
                 <span class="text-xl font-bold cursor-default">Other Seasons</span>
                 <div v-show="loadingState == false" class="grid grid-cols-2 lg:grid-cols-3 gap-3">
-                  <!-- Card -->
-                  <router-link to="/myponyasia/anime" class="relative p-2 flex flex-col w-[147px] md:w-52 bg-black bg-opacity-25 hover:shadow-lg rounded-xl hover:opacity-50 duration-200">
-                    <img class="rounded-xl" src="../../assets/images/myponyasia/poster-portrait.webp" alt="Poster"/>
-                    <p class="absolute p-2 bg-blue-700 top-0 left-0 rounded-tl-xl font-bold text-sm">TV</p>
-                    <p class="absolute p-2 bg-blue-700 top-0 right-0 rounded-tr-xl font-bold text-sm">16 Jan</p>
-                    <p class="-mt-6 text-center bg-trueGray-600 font-semibold rounded-b-xl">Episode 8</p>
-                    <p class="text-center mt-2">Re:Zero kara Hajimeru Isekai Seikatsu 2nd Season Part 2</p>
-                  </router-link>
-                  <!-- End Card -->
-                  <!-- Card -->
-                  <router-link to="/myponyasia/anime" class="relative p-2 flex flex-col w-[147px] md:w-52 bg-black bg-opacity-25 hover:shadow-lg rounded-xl hover:opacity-50 duration-200">
-                    <img class="rounded-xl" src="../../assets/images/myponyasia/poster-portrait.webp" alt="Poster"/>
-                    <p class="absolute p-2 bg-blue-700 top-0 left-0 rounded-tl-xl font-bold text-sm">TV</p>
-                    <p class="absolute p-2 bg-blue-700 top-0 right-0 rounded-tr-xl font-bold text-sm">16 Jan</p>
-                    <p class="-mt-6 text-center bg-trueGray-600 font-semibold rounded-b-xl">Episode 8</p>
-                    <p class="text-center mt-2">Re:Zero kara Hajimeru Isekai Seikatsu 2nd Season Part 2</p>
-                  </router-link>
-                  <!-- End Card -->
-                  <!-- Card -->
-                  <router-link to="/myponyasia/anime" class="relative p-2 flex flex-col w-[147px] md:w-52 bg-black bg-opacity-25 hover:shadow-lg rounded-xl hover:opacity-50 duration-200">
-                    <img class="rounded-xl" src="../../assets/images/myponyasia/poster-portrait.webp" alt="Poster"/>
-                    <p class="absolute p-2 bg-blue-700 top-0 left-0 rounded-tl-xl font-bold text-sm">TV</p>
-                    <p class="absolute p-2 bg-blue-700 top-0 right-0 rounded-tr-xl font-bold text-sm">16 Jan</p>
-                    <p class="-mt-6 text-center bg-trueGray-600 font-semibold rounded-b-xl">Episode 8</p>
-                    <p class="text-center mt-2">Re:Zero kara Hajimeru Isekai Seikatsu 2nd Season Part 2</p>
-                  </router-link>
-                  <!-- End Card -->
-                  <!-- Card -->
-                  <router-link to="/myponyasia/anime" class="relative p-2 flex flex-col w-[147px] md:w-52 bg-black bg-opacity-25 hover:shadow-lg rounded-xl hover:opacity-50 duration-200">
-                    <img class="rounded-xl" src="../../assets/images/myponyasia/poster-portrait.webp" alt="Poster"/>
-                    <p class="absolute p-2 bg-blue-700 top-0 left-0 rounded-tl-xl font-bold text-sm">TV</p>
-                    <p class="absolute p-2 bg-blue-700 top-0 right-0 rounded-tr-xl font-bold text-sm">16 Jan</p>
-                    <p class="-mt-6 text-center bg-trueGray-600 font-semibold rounded-b-xl">Episode 8</p>
-                    <p class="text-center mt-2">Re:Zero kara Hajimeru Isekai Seikatsu 2nd Season Part 2</p>
-                  </router-link>
-                  <!-- End Card -->
+                  <AnimeCard />
+                  <AnimeCard />
+                  <AnimeCard />
+                  <AnimeCard />
                 </div>
                 <!-- End Anime Cards -->
 
                 <!-- Anime Cards Skeleton -->
                 <div v-show="loadingState == true" class="grid grid-cols-2 lg:grid-cols-3 gap-3">
-                  <!-- Card Skeleton -->
-                  <div class="relative p-2 flex flex-col w-[147px] md:w-52 bg-black bg-opacity-25 rounded-xl animate-pulse">
-                    <div class="rounded-xl bg-trueGray-600 w-[130px] md:w-[190px] h-44"/>
-                    <div class="absolute p-2 bg-blue-700 text-blue-700 top-0 left-0 rounded-tl-xl font-bold text-sm cursor-default">TV</div>
-                    <div class="absolute p-2 bg-blue-700 text-blue-700 top-0 right-0 rounded-tr-xl font-bold text-sm cursor-default">TBA :3</div>
-                    <div class="h-20"></div>
-                  </div>
-                  <!-- End Card Skeleton -->
-                  <!-- Card Skeleton -->
-                  <div class="relative p-2 flex flex-col w-[147px] md:w-52 bg-black bg-opacity-25 rounded-xl animate-pulse">
-                    <div class="rounded-xl bg-trueGray-600 w-[130px] md:w-[190px] h-44"/>
-                    <div class="absolute p-2 bg-blue-700 text-blue-700 top-0 left-0 rounded-tl-xl font-bold text-sm cursor-default">TV</div>
-                    <div class="absolute p-2 bg-blue-700 text-blue-700 top-0 right-0 rounded-tr-xl font-bold text-sm cursor-default">TBA :3</div>
-                    <div class="h-20"></div>
-                  </div>
-                  <!-- End Card Skeleton -->
+                  <AnimeCardSkeleton />
+                  <AnimeCardSkeleton />
+                  <AnimeCardSkeleton />
+                  <AnimeCardSkeleton />
                 </div>
                 <!-- End Anime Cards Skeleton -->
               </div>
-              <!-- Other Prev Season -->
-
+              <!-- End Other Season -->
             </div>
             <!-- End Info -->
 
@@ -523,14 +480,13 @@
 
             </div>
             <!-- End Trailer -->
-
         </div>
         <!-- End Desktop Right Content & Ipad & Mobile Bottom Content -->
 
-      </div>
+      </section>
       <!-- End Content -->
       
-    </section>
+    </main>
     <!-- Main -->
 
     <!-- Footer -->
@@ -540,10 +496,13 @@
 </template>
 
 <script>
+import {ref} from 'vue'
 import {Disclosure,DisclosureButton,DisclosurePanel} from '@headlessui/vue'
 import Footer from '../../components/mpa/Footer.vue'
 import Header from '../../components/mpa/Header.vue'
-import {ref} from 'vue'
+import AnimeCard from '../../components/mpa/AnimeCard.vue'
+import AnimeCardSkeleton from '../../components/mpa/parts/AnimeCardSkeleton.vue'
+
 export default {
   components: { 
     Disclosure, 
@@ -551,13 +510,15 @@ export default {
     DisclosurePanel,
     Header,
     Footer,
+    AnimeCard,
+    AnimeCardSkeleton,
   },
   
   setup(){
     
     const switcher = ref('info');
     const loadMore = ref(false);
-    const loadingState = ref(false);
+    const loadingState = ref(false)
 
     // Cukup p aja :v kaga usah pake class lagi
     // const sinopsis = ref(`Kimizuka Kimihiko is a crisis-magnet. From getting caught up in a crime scene to`)
