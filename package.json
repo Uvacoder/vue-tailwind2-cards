@@ -15,6 +15,7 @@
     "json-server": "^0.16.3",
     "swiper": "^6.7.5",
     "vue": "^3.0.0",
+    "vue-awesome-swiper": "^4.1.1",
     "vue-router": "^4.0.6"
   },
   "devDependencies": {

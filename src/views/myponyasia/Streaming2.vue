@@ -22,7 +22,7 @@
 
         <!-- Episodes Desktop version -->
         <div class="hidden lg:block">
-          <p class="text-center font-bold text-lg cursor-default">Episodes {{ loadingState }} </p>
+          <p class="text-center font-bold text-lg cursor-default">Episodes</p>
           <!-- Episodes -->
           <div v-show="loadingState == false" class="mt-3 overflow-y-auto h-[480px]">
             <!-- Episode -->
