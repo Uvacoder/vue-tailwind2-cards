@@ -13,6 +13,8 @@ import MyPonyAsiaStreaming2 from '../views/myponyasia/Streaming2.vue'
 import Admin1 from '../views/Admin/Admin1.vue'
 import Admin2 from '../views/Admin/Admin2.vue'
 
+import Spotify2021 from '../views/gabut/spotify2021.vue'
+
 const routes = [
     // Route untuk about
     {
@@ -35,6 +37,7 @@ const routes = [
         component: ToDoList,
     },
 
+    // Admin Template
     {
         path: '/admin1',
         name: 'Admin1',
@@ -47,6 +50,7 @@ const routes = [
         // nama komponen yang di import
         component: Admin2,
     },
+    // End Admin Template
 
 
     // MyPonyAsia Links
@@ -54,9 +58,6 @@ const routes = [
         path: '/myponyasia',
         name: 'MPASwitching',
         component: MyPonyAsiaSwitching,
-        // children: [
-          
-        // ]
     },
     {
       path: '/myponyasia/home',
@@ -83,6 +84,15 @@ const routes = [
       name: 'MPAAnime2',
       component: MyPonyAsiaAnime2,
     },
+    // End MyPonyAsia Links
+
+    // Gabut (Clone) Links
+    {
+      path: '/spotify2021',
+      name: 'Spotify2021',
+      component: Spotify2021,
+    },
+    // End Gabut (Clone) Links
 ]
 
 const router = createRouter({
