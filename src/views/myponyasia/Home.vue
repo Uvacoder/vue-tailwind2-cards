@@ -8,6 +8,7 @@
     <!-- End Navbar -->
 
     <!-- Corousel Section -->
+      <!-- Navigation, autoplay not working on production -->
       <swiper
       :options="swiperOptions"
       :slides-per-view="auto"

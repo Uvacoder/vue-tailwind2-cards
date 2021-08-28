@@ -1,14 +1,14 @@
 <template>
   <!-- Footer -->
       <div class="flex justify-center px-10 pt-2 bg-black shadow-2xl">
-        <div class="flex flex-col items-center justify-center ">
-          <span class="font-bold text-lg mb-3 cursor-default">Partners</span>
-          <div class="flex space-x-4">
+        <div class="flex flex-col items-center justify-center space-y-4">
+          <span class="font-bold text-lg cursor-default">Partners</span>
+          <div class="grid grid-cols-2 gap-3 sm:flex sm:flex-row text-center">
             <a href="/myAnimeAsia/detail"><img class="w-28 rounded-xl hover:opacity-75 duration-150" src="../../assets/images/myponyasia/landscape1.png" alt="Partners Banner" /></a>
             <a href="/myAnimeAsia/detail"><img class="w-28 rounded-xl hover:opacity-75 duration-150" src="../../assets/images/myponyasia/landscape1.png" alt="Partners Banner" /></a>
             <a href="/myAnimeAsia/detail"><img class="w-28 rounded-xl hover:opacity-75 duration-150" src="../../assets/images/myponyasia/landscape1.png" alt="Partners Banner" /></a>
           </div>
-          <div class="grid grid-cols-2 gap-3 sm:flex sm:flex-row  mt-3 text-center">
+          <div class="grid grid-cols-2 gap-3 sm:flex sm:flex-row text-center">
             <a href="/myAnimeAsia/detail" class="mx-5 hover:opacity-60 duration-150">Privacy Policy</a>
             <span class="hidden sm:contents">&bull;</span>
             <a href="/myAnimeAsia/detail" class="mx-5 hover:opacity-60 duration-150">FeedBack</a>

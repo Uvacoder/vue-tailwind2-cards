@@ -467,13 +467,13 @@
 
               <!-- Trailer Modal -->
               <div v-show="trailerModal == true">
-                <div class="z-50 fixed inset-0 w-full h-full bg-black bg-opacity-70 flex justify-center items-center pt-5 bg-trueGray-800">
+                <div class="z-50 fixed inset-0 w-full h-full bg-opacity-70 flex justify-center items-center pt-5 bg-trueGray-800">
                   <button @click="trailerModal = trailerModal = false" class="absolute -mt-80 md:-mt-96">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 hover:opacity-60 duration-150" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </button>
-                  <iframe width="" :src="'https://www.youtube.com/embed/'+trailerId" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg bg-trueGray-800 p-3 shadow-xl mx-20 w-[530px] h-[285px] md:w-[630px] md:h-[385px]"></iframe>
+                  <iframe :src="'https://www.youtube.com/embed/'+trailerId" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg bg-trueGray-800 p-3 shadow-xl mx-20 w-[530px] h-[285px] md:w-[630px] md:h-[385px]"></iframe>
                 </div>
               </div>
               <!-- End Trailer Modal -->
