@@ -1,6 +1,6 @@
 <template>
   <!-- Footer -->
-      <div class="flex justify-center px-10 pt-2 bg-black shadow-2xl">
+      <div class="flex justify-center px-10 pt-2 bg-black shadow-2xl max-w-[90rem] mx-auto">
         <div class="flex flex-col items-center justify-center space-y-4">
           <span class="font-bold text-lg cursor-default">Partners</span>
           <div class="grid grid-cols-2 gap-3 sm:flex sm:flex-row text-center">

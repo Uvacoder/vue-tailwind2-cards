@@ -316,7 +316,7 @@
 import {ref} from 'vue'
 import Header from '../../components/mpa/Header.vue'
 import Footer from '../../components/mpa/Footer.vue'
-import AnimeCard from '../../components/mpa/AnimeCard.vue'
+import AnimeCard from '../../components/mpa/parts/AnimeCard.vue'
 import AnimeCardSkeleton from '../../components/mpa/parts/AnimeCardSkeleton.vue'
 
 export default {

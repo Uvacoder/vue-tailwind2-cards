@@ -149,15 +149,15 @@
             <!-- Switch -->
             <div class="flex justify-center lg:justify-start">
               <div class="grid grid-cols-3 md:flex bg-trueGray-600 mt-3 lg:mt-5 rounded-lg divide-x-4 divide-trueGray-600">
-                <button @click="switcher = 'info'" :class="[switcher == 'info' ? 'bg-blue-700' : '']" class="p-1 px-7 md:px-14 lg:px-5 hover:bg-blue-700 duration-200 active:bg-blue-700 rounded-l-lg font-semibold">Info</button>
-                <button @click="switcher = 'episode'" :class="[switcher == 'episode' ? 'bg-blue-700' : '']" class="p-1 px-7 md:px-14 lg:px-5 hover:bg-blue-700 duration-200 font-semibold">Episode</button>
-                <button @click="switcher = 'trailer'" :class="[switcher == 'trailer' ? 'bg-blue-700' : '']" class="p-1 px-7 md:px-14 lg:px-5 hover:bg-blue-700 duration-200 rounded-r-lg font-semibold">Trailer</button>
+                <button @click="tab = 'info'" :class="[tab == 'info' ? 'bg-blue-700' : '']" class="p-1 px-7 md:px-14 lg:px-5 hover:bg-blue-700 duration-200 active:bg-blue-700 rounded-l-lg font-semibold">Info</button>
+                <button @click="tab = 'episode'" :class="[tab == 'episode' ? 'bg-blue-700' : '']" class="p-1 px-7 md:px-14 lg:px-5 hover:bg-blue-700 duration-200 font-semibold">Episode</button>
+                <button @click="tab = 'trailer'" :class="[tab == 'trailer' ? 'bg-blue-700' : '']" class="p-1 px-7 md:px-14 lg:px-5 hover:bg-blue-700 duration-200 rounded-r-lg font-semibold">Trailer</button>
               </div>
             </div>
             <!-- End Switch -->
 
             <!-- Info -->
-            <div v-if="switcher == 'info'" class="mt-5 space-y-4 md:w-[90%] lg:w-full mx-auto">
+            <div v-if="tab == 'info'" class="mt-5 space-y-4 md:w-[90%] lg:w-full mx-auto">
 
               <!-- Synopsis  -->
               <div v-show="loadingState == false" class="flex flex-col">
@@ -289,7 +289,7 @@
             <!-- End Info -->
 
             <!-- Episodes -->
-            <div v-if="switcher == 'episode'" class="mt-5 md:w-[90%] lg:w-full mx-auto">
+            <div v-if="tab == 'episode'" class="mt-5 md:w-[90%] lg:w-full mx-auto">
               <div v-show="loadingState == false" class="space-y-5">
                 <!-- Episode -->
                 <div class="my-2">
@@ -415,7 +415,7 @@
             <!-- End Episodes -->
 
             <!-- Trailer -->
-            <div v-if="switcher == 'trailer'" class="mt-5 space-y-5 md:w-[90%] lg:w-full mx-auto">
+            <div v-if="tab == 'trailer'" class="mt-5 space-y-5 md:w-[90%] lg:w-full mx-auto">
               <!-- Trailers Grid -->
               <div v-show="loadingState == false" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 <!-- Trailer -->
@@ -500,8 +500,9 @@ import {ref} from 'vue'
 import {Disclosure,DisclosureButton,DisclosurePanel} from '@headlessui/vue'
 import Footer from '../../components/mpa/Footer.vue'
 import Header from '../../components/mpa/Header.vue'
-import AnimeCard from '../../components/mpa/AnimeCard.vue'
+import AnimeCard from '../../components/mpa/parts/AnimeCard.vue'
 import AnimeCardSkeleton from '../../components/mpa/parts/AnimeCardSkeleton.vue'
+import {useRoute} from 'vue-router'
 
 export default {
   components: { 
@@ -516,9 +517,9 @@ export default {
   
   setup(){
     
-    const switcher = ref('info');
     const loadMore = ref(false);
     const loadingState = ref(false)
+    const tab = ref(useRoute().query.tab || 'episode')
 
     // Cukup p aja :v kaga usah pake class lagi
     // const sinopsis = ref(`Kimizuka Kimihiko is a crisis-magnet. From getting caught up in a crime scene to`)
@@ -542,14 +543,9 @@ export default {
     const trailerModal = ref(false);
     const trailerId = ref('');
 
-    const testing = function(){
-      console.log("Testing :v");
-    }
-
     return {
-      testing,
       loadingState,
-      switcher,
+      tab,
 
       loadMore,
       sinopsis,
