@@ -15,6 +15,8 @@ import Admin2 from '../views/Admin/Admin2.vue'
 
 import Spotify2021 from '../views/gabut/spotify2021.vue'
 
+import LandingPage1 from '../views/landingpage/landingpage1.vue'
+
 const routes = [
     // Route untuk about
     {
@@ -93,6 +95,14 @@ const routes = [
       component: Spotify2021,
     },
     // End Gabut (Clone) Links
+
+    // Landing Page Links
+    {
+      path: '/landingpage1',
+      name: 'LandingPage1',
+      component: LandingPage1,
+    },
+    // End Landing Page Links
 ]
 
 const router = createRouter({
