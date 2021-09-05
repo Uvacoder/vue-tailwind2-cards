@@ -57,9 +57,9 @@ const routes = [
 
     // MyPonyAsia Links
     {
-        path: '/myponyasia',
-        name: 'MPASwitching',
-        component: MyPonyAsiaSwitching,
+      path: '/myponyasia',
+      name: 'MPASwitching',
+      component: MyPonyAsiaSwitching,
     },
     {
       path: '/myponyasia/home',
