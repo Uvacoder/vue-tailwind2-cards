@@ -11,6 +11,7 @@
             <router-link to="/myponyasia/anime" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Anime Page </router-link>
             <router-link to="/myponyasia/streaming" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Streaming Page </router-link>
             <router-link to="/myponyasia/streaming2" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Streaming Page V2 </router-link>
+            <router-link to="/myponyasia/Find" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Find Page </router-link>
         </div> 
       </div>
       <!-- End MyPonyAsia -->

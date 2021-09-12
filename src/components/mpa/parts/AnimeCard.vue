@@ -5,7 +5,7 @@
       <p v-show="topLeft" class="absolute p-2 bg-blue-700 top-0 left-0 rounded-tl-xl font-bold text-xs md:text-sm"> {{ topLeft }} </p>
       <p v-show="topRight" class="absolute p-2 bg-blue-700 top-0 right-0 rounded-tr-xl font-bold text-xs md:text-sm"> {{ topRight }} </p>
       <p v-show="episode" class="-mt-4 md:-mt-6 text-center bg-trueGray-600 font-semibold rounded-b-xl text-xs md:text-sm lg:text-base">Episode {{ episode }} </p>
-      <p class="text-center mt-2 line-clamp-3 text-xs md:text-base">Re:Zero kara Hajimeru Isekai Seikatsu 2nd Season Part 2</p>
+      <p v-show="title" class="text-center mt-2 line-clamp-3 text-xs md:text-base"> {{ title }} </p>
     </router-link>
   </div>
 </template>
@@ -23,6 +23,11 @@ export default {
     },
     topRight: {
       default: null,
+      type: String
+      },  
+    title: {
+      // default: null,
+      default: 'Re:Zero kara Hajimeru Isekai Seikatsu 2nd Season Part 2',
       type: String
       },  
     episode: {

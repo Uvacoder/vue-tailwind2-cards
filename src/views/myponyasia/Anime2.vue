@@ -570,7 +570,7 @@ export default {
     
     const loadMore = ref(false);
     const loadingState = ref(false)
-    const tab = ref(useRoute().query.tab || 'trailer')
+    const tab = ref(useRoute().query.tab || 'info')
 
     // Cukup p aja :v kaga usah pake class lagi
     // const sinopsis = ref(`Kimizuka Kimihiko is a crisis-magnet. From getting caught up in a crime scene to`)

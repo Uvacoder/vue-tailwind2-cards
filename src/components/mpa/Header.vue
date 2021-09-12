@@ -1,6 +1,5 @@
 <template>
-  <!-- Navbar -->
-  <div class="">
+  <header class="">
       <div class="flex justify-between bg-trueGray-900 p-4 rounded-b shadow-xl max-w-[90rem] mx-auto">
         <router-link to="/myponyasia/home">
           <img class="w-40" src="../../assets/images/myponyasia/logo-myponyasia.png" alt="" />
@@ -56,7 +55,7 @@
       </Dialog>
       <!-- End Search Modal -->
 
-  </div>
+  </header>
     <!-- End Navbar -->
 </template>
 

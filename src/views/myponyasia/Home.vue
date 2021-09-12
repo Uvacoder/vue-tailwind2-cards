@@ -7,9 +7,39 @@
     />
     <!-- End Navbar -->
 
-    <!-- Corousel -->
-    <div class="max-w-[85rem] mx-auto">
-      <div v-show="loadingState == false">
+    <!-- Loading State -->
+      <div v-if="loadingState == true">
+
+      <!-- Corousel -->
+      <div class="max-w-[85rem] mx-auto">
+        <div class="w-full h-[240px] md:h-[255px] lg:h-[450px] bg-trueGray-600 animate-pulse" />
+      </div>
+      <!-- End Corousel  -->
+
+      <!-- On Progress Section -->
+      <section class="my-10 max-w-[85rem] mx-auto">
+        <div class="border border-b-2 border-trueGray-700"></div>
+        <div class="flex justify-center">
+          <router-link to="/myponyasia/anime2" class="absolute -mt-5 bg-trueGray-800 px-5 text-3xl font-semibold rounded-lg">On Progress</router-link>
+        </div>
+        
+        <!-- Card -->
+        <div class="p-4 mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-5 justify-items-center">
+          <AnimeCardSkeleton :topLeft="true" :topRight="true" />
+        </div>
+        <!-- End Card -->
+
+      </section>
+      <!-- End On Progress Section -->
+
+      </div>
+    <!-- End loading State -->
+
+    <!-- Data State -->
+      <div v-else>
+
+      <!-- Corousel -->
+      <div class="max-w-[85rem] mx-auto">
         <vueper-slides  lazy 
                         lazy-load-on-drag 
                         autoplay
@@ -46,29 +76,26 @@
           </template>
         </vueper-slides>
       </div>
-      <div v-show="loadingState == true">
-        <div class="w-full h-[240px] md:h-[255px] lg:h-[450px] bg-trueGray-600 animate-pulse"></div>
-      </div>
-    </div>
-    <!-- End Corousel  -->
+      <!-- End Corousel  -->
 
-    <!-- On Progress Section -->
-    <section className="my-10 max-w-[85rem] mx-auto">
-      <div className="border border-b-2 border-trueGray-700"></div>
-      <div className="flex justify-center">
-        <router-link to="/myponyasia/anime2" className="absolute -mt-5 bg-trueGray-800 px-5 text-3xl font-semibold rounded-lg">On Progress</router-link>
+      <!-- On Progress Section -->
+      <section class="my-10 max-w-[85rem] mx-auto">
+        <div class="border border-b-2 border-trueGray-700"></div>
+        <div class="flex justify-center">
+          <router-link to="/myponyasia/anime2" class="absolute -mt-5 bg-trueGray-800 px-5 text-3xl font-semibold rounded-lg">On Progress</router-link>
+        </div>
+        
+        <!-- Card -->
+        <div class="p-4 mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-5 justify-items-center">
+          <AnimeCard :topLeft="'KKA'" :topRight="'17 sept'" />
+        </div>
+        <!-- Card -->
+
+      </section>
+      <!-- End On Progress Section -->
+
       </div>
-      
-      <!-- Anime Card -->
-      <div v-show="loadingState == false" className="p-4 mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-5 justify-items-center">
-        <AnimeCard :cards="5" :topLeft="'KKA'" />
-      </div>
-      <div v-show="loadingState == true" className="p-4 mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-5 justify-items-center">
-        <AnimeCardSkeleton :cards="5" :topLeft="true" :topRight="true" />
-      </div>
-      <!-- End Anime Card -->
-    </section>
-    <!-- End On Progress Section -->
+    <!-- EndData State -->
 
     <!-- Footer -->
     <Footer />
