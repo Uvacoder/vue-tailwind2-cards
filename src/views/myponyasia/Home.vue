@@ -61,7 +61,7 @@
       
       <!-- Anime Card -->
       <div v-show="loadingState == false" className="p-4 mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-5 justify-items-center">
-        <AnimeCard :cards="5" />
+        <AnimeCard :cards="5" :topLeft="'KKA'" />
       </div>
       <div v-show="loadingState == true" className="p-4 mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-5 justify-items-center">
         <AnimeCardSkeleton :cards="5" :topLeft="true" :topRight="true" />
@@ -131,6 +131,7 @@ export default {
       default: false,
     }
   },
+  
   components:{
     Header,
     Footer,

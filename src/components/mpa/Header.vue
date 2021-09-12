@@ -43,9 +43,9 @@
                 <!-- End Search Section -->
 
                 <!-- Search Result -->
-                <div class="text-white mt-3 bg-trueGray-800 rounded-2xl h-[550px] md:h-[850px] lg:h-[450px] xl:h-[850px] overflow-y-scroll overflow-x-hidden py-5 px-5 md:px-10 lg:px-20">
+                <div class="text-white mt-3 bg-trueGray-800 rounded-2xl h-[550px] md:h-[850px] lg:h-[500px] 2xl:h-[850px] overflow-y-scroll overflow-x-hidden py-5 px-5 md:px-10 lg:px-20">
                   <div class="grid grid-cols-2 lg:grid-cols-3 justify-items-center gap-5">
-                  <AnimeCard :cards="40" :episodeId="1" />
+                  <AnimeCard :cards="40" :episodeId="1" :topLeft="'Special'" />
                   </div>
                 </div>
                 <!-- End Search Result -->
