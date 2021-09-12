@@ -11,6 +11,8 @@ import MyPonyAsiaStreaming from '../views/myponyasia/Streaming.vue'
 import MyPonyAsiaStreaming2 from '../views/myponyasia/Streaming2.vue'
 import MyPonyAsiaFind from '../views/myponyasia/Find.vue'
 import MyPonyAsiaFindBy from '../views/myponyasia/FindBy.vue'
+import MyPonyAsiaAbout from '../views/myponyasia/About.vue'
+import MyPonyAsiaPrivacyPolicy from '../views/myponyasia/PrivacyPolicy.vue'
 
 import Admin1 from '../views/Admin/Admin1.vue'
 import Admin2 from '../views/Admin/Admin2.vue'
@@ -97,6 +99,16 @@ const routes = [
       path: '/myponyasia/:findBy/:id',
       name: 'MPAFindBy',
       component: MyPonyAsiaFindBy,
+    },
+    {
+      path: '/myponyasia/about',
+      name: 'MPAAbout',
+      component: MyPonyAsiaAbout,
+    },
+    {
+      path: '/myponyasia/privacy',
+      name: 'MPAPrivacyPolicy',
+      component: MyPonyAsiaPrivacyPolicy,
     },
     // End MyPonyAsia Links
 
