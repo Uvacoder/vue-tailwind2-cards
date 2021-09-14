@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.hover-blue {
+  @apply hover:bg-indigo-700 duration-150;
+}
+
+.hover-black {
+  @apply hover:bg-opacity-70 duration-150;
+}
+
+.clip{
+  clip-path: polygon(0 0, 100% 0, 98% 100%, 0 100%);
+}

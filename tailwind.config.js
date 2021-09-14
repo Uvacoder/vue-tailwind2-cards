@@ -11,7 +11,13 @@ module.exports = {
     extend: {
       colors: {
         'trueGray': colors.trueGray,
-      },  
+        pony: {
+          'primary': '#303030',
+          'secondary': '#212121',
+          'button': '#1d4ed8',
+          'card': '#424242',
+        }
+      },
     },
   },
   variants: {

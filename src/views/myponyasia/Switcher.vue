@@ -17,7 +17,7 @@
           <span class="group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#16b2cb] group-hover:to-[#ab4b9c] duration-200"> My Little Pony </span>
         </router-link>
         
-        <router-link to="/myponyasia/home" class="relative group">
+        <router-link to="/myponyasia/pony/home" class="relative group">
           <img class="rounded-xl group-hover:opacity-50 duration-200 shadow-xl transform group-hover:transform group-hover:-rotate-3"
             src="../../assets/images/myponyasia/landscape2.png" alt="Anime" />
           <span class="group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#ab4b9c] group-hover:to-[#16b2cb] duration-200"> Anime </span>

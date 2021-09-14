@@ -1,7 +1,7 @@
 <template>
   <div class="bg-trueGray-800 min-h-screen max-h-full text-gray-100">
     <div class="container mx-auto pt-10 pb-3">
-      <!-- MyPonyAsia -->
+      <!-- Anime MyPonyAsia -->
       <div class="mb-10 text-center space-y-3">
         <span class="text-3xl font-bold capitalize">Anime@MyPonyAsia</span>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-9 font-bold justify-items-center">
@@ -14,7 +14,17 @@
             <router-link to="/myponyasia/Find" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Find Page </router-link>
         </div> 
       </div>
-      <!-- End MyPonyAsia -->
+      <!-- End Anime MyPonyAsia -->
+
+      <!-- Pony MyPonyAsia -->
+      <div class="mb-10 text-center space-y-3">
+        <span class="text-3xl font-bold capitalize">Pony@MyPonyAsia</span>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-9 font-bold justify-items-center">
+            <router-link to="/myponyasia" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">Switcher</router-link>
+            <router-link to="/myponyasia/pony/home" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Main Page  </router-link>
+        </div> 
+      </div>
+      <!-- End Pony MyPonyAsia -->
 
       <!-- Admin Template -->
       <div class="my-10 text-center space-y-3">

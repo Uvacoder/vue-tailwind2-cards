@@ -14,6 +14,8 @@ import MyPonyAsiaFindBy from '../views/myponyasia/FindBy.vue'
 import MyPonyAsiaAbout from '../views/myponyasia/About.vue'
 import MyPonyAsiaPrivacyPolicy from '../views/myponyasia/PrivacyPolicy.vue'
 
+import MyPonyAsiaPonyHome from '../views/myponyasia/pony/Home.vue'
+
 import Admin1 from '../views/Admin/Admin1.vue'
 import Admin2 from '../views/Admin/Admin2.vue'
 
@@ -111,6 +113,14 @@ const routes = [
       component: MyPonyAsiaPrivacyPolicy,
     },
     // End MyPonyAsia Links
+    
+    // MyPonyAsia Pony Links
+    {
+      path: '/myponyasia/pony/home',
+      name: 'MyPonyAsiaPonyHome',
+      component: MyPonyAsiaPonyHome,
+    },
+    // End MyPonyAsia Pony Links
 
     // Gabut (Clone) Links
     {
