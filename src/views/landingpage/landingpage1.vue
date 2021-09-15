@@ -1,10 +1,16 @@
 <template>
-  <div class="text-trueGray-500 p-5">
+  <div class="text-white max-w-[1550px] mx-auto overflow-hidden">
+
     <!-- TopBar -->
-    <div class="flex justify-between items-center">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <header class="flex justify-between items-center text-trueGray-500 py-2 w-[90%] mx-auto text-lg">
+      
+      <!-- Left Section -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
       </svg>
+      <!-- Left Section -->
+
+      <!-- Middle Section -->
       <div class="flex space-x-5 font-semibold">
         <a href="#">
           <div class="flex items-center space-x-1">
@@ -20,29 +26,271 @@
         <a href="#">Partner</a>
         <a href="#">Perusahaan</a>
       </div>
+      <!-- End Middle Section -->
+
+      <!-- Right Section -->
       <div class="space-x-5">
         <a href="#" class="">Sign in</a>
-        <a href="#" class="p-2 px-5 bg-indigo-600 text-white font-semibold rounded-lg">Sign up</a>
+        <a href="#" class="btn">Sign up</a>
       </div>
-    </div>
+      <!-- End Right Section -->
+
+    </header>
     <!-- End TopBar -->
 
     <!-- Jumbotron -->
-    <div class="relative my-5 w-full h-[550px]">
-      <img src="../../assets/images/myponyasia/landscape1.png" alt="Ini Jumbotron" class="absolute w-full h-[550px] object-cover opacity-100 rounded-lg z-10">
-      <div class="absolute flex h-full w-full justify-center items-center mb-10 z-20">
-        <div class="space-y-5">
-          <h1 class="text-5xl font-extrabold text-center px-80">Lorem ipsum dolor sit amet. <span class="text-trueGray-500 text-opacity-50">Lorem ipsum dolor sit amet.</span> </h1>
-          <h2 class="text-2xl text-center px-60">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, minus cum! Provident similique sint consectetur natus nostrum a illum deleniti.</h2>
-          <div class="flex text-gray-700 justify-center space-x-10 font-semibold">
-            <a href="#" class="p-3 px-10 bg-white rounded-lg text-indigo-600 hover:text-white hover:bg-indigo-600 duration-200">Start</a>
-            <a href="#" class="p-3 px-10 bg-indigo-500/50 rounded-lg text-white hover:text-white hover:bg-indigo-600 duration-200">Finish</a>
+    <section class="mt-5 relative">
+      <div class="absolute bg-trueGray-100 w-full h-[350px] mt-52"/>
+      <div class="w-[90%] mx-auto relative">
+        <img src="../../assets/images/myponyasia/landscape1.png" alt="Jumbotron" class="rounded-xl object-cover w-full h-[520px] shadow-xl">
+        <div class="absolute top-0 w-full h-full rounded-xl bg-black/40">
+          <div class="flex flex-col justify-center items-center h-full cursor-default text-center px-10">
+            <h1 class="text-5xl font-extrabold">Lorem ipsum dolor sit amet.</h1>
+            <h2 class="text-5xl font-bold text-white/75">Lorem ipsum dolor sit amet consectetur, adipisicing</h2>
+            <p class="text-xl my-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque repudiandae recusandae assumenda unde adipisci dolorem tenetur ipsum consectetur nostrum commodi!</p>
+            <div class="flex justify-between space-x-10">
+              <button class="p-3 px-10 bg-white text-indigo-600 hover:bg-indigo-600 hover:text-white duration-150 font-semibold rounded-lg">Left</button>
+              <button class="p-3 px-10 bg-indigo-600/50 hover:bg-indigo-600/100 duration-150 font-semibold rounded-lg">Right</button>
+            </div>
           </div>
         </div>
       </div>
-      <div class="absolute top-1/2 bg-trueGray-500 z-0 h-[550px] w-full -m-5"/>
-    </div>
+    </section>
     <!-- End Jumbotron -->
 
+    <!-- Trusted By Company -->
+    <section class="bg-gradient-to-b from-trueGray-100 to-white py-10 text-black/70">
+      <div class="w-[90%] mx-auto">
+        <h3 class="font-semibold text-center text-xl">Trusted By</h3>
+
+        <div class="flex justify-center items-center py-5 flex-wrap space-x-14">
+          <div v-for="loop in 5" :key="loop" class="flex items-center opacity-50 space-x-1">
+            <span class="text-xl"> Company {{ loop }} </span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Trusted By Company -->
+
+    <!-- Advantage 1 -->
+    <section class="py-16 text-black/70">
+      <div class="flex justify-around items-center max-w-[90%] mx-auto">
+        
+        <!-- Left Section -->
+        <div class="w-1/2 space-y-3">
+
+          <!-- Icon Container -->
+          <div class="flex">
+            <div class="btn ">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+              </svg>
+            </div>
+          </div>
+          <!-- End Icon Container -->
+
+          <h1 class="font-extrabold text-3xl">Lorem ipsum dolor sit amet.</h1>
+          <p class="text-lg text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores similique a minima voluptate, sunt nostrum minus modi tenetur est ad explicabo odio placeat dicta repudiandae suscipit iure beatae enim temporibus, soluta laudantium eos mollitia veniam consectetur accusantium? Nihil vel, in, veritatis porro similique doloremque atque enim repudiandae dolore quia deleniti.</p>
+          <button class="btn">Get Started</button>
+        </div>
+        <!-- End Left Section -->
+
+        <!-- Right Section -->
+        <div class="h-[370px] w-1/2">
+          <div class="relative bg-black">
+            <img src="../../assets/images/myponyasia/landscape1.png" alt="Advantage Pict" class="rounded-xl absolute -right-44 transform -rotate-3 shadow-sm hover:shadow-xl duration-150">
+          </div>
+        </div> 
+        <!-- End Right Section -->
+
+      </div>
+    </section>
+    <!-- End Advantage 1 -->
+
+    <!-- Advantage 2 -->
+    <section class="py-16 text-black/70">
+      <div class="flex justify-around items-center max-w-[90%] mx-auto">
+        
+        <!-- left Section -->
+        <div class="h-[370px] w-1/2">
+          <div class="relative bg-black">
+            <img src="../../assets/images/myponyasia/landscape1.png" alt="Advantage Pict" class="rounded-xl absolute -left-44 transform rotate-3 shadow-sm hover:shadow-xl duration-150">
+          </div>
+        </div> 
+        <!-- End left Section -->
+
+        <!-- Right Section -->
+        <div class="w-1/2 space-y-3">
+
+          <!-- Icon Container -->
+          <div class="flex">
+            <div class="btn ">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+          </div>
+          <!-- End Icon Container -->
+
+          <h1 class="font-extrabold text-3xl">Lorem ipsum dolor sit amet.</h1>
+          <p class="text-lg text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores similique a minima voluptate, sunt nostrum minus modi tenetur est ad explicabo odio placeat dicta repudiandae suscipit iure beatae enim temporibus, soluta laudantium eos mollitia veniam consectetur accusantium? Nihil vel, in, veritatis porro similique doloremque atque enim repudiandae dolore quia deleniti.</p>
+          <button class="btn">Get Started</button>
+        </div>
+        <!-- End Right Section -->
+
+      </div>
+    </section>
+    <!-- End Advantage 2 -->
+
+    <!-- Company Products -->
+    <section class="bg-gradient-to-r from-purple-700 to-indigo-600">
+      <div class="w-[90%] mx-auto py-20">
+        <h1 class="text-3xl font-bold">Lorem ipsum dolor sit amet.</h1>
+        <h2 class="w-1/2 text-lg my-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque temporibus adipisci impedit ducimus qui cum corrupti? Tempore non assumenda minus.</h2>
+        <!-- Grid Container -->
+        <div class="grid grid-cols-4 gap-10 mt-20">
+
+          <!-- Grid -->
+          <div v-for="loop in 8" :key="loop">
+            <div class="flex py-3">
+              <div class="p-3 bg-purple-600 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl py-2">Lorem, ipsum dolor.</h3>
+            <p class="text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae exercitationem aliquid corrupti, minima veniam voluptate repellendus in voluptatem rerum nulla.</p>
+          </div>
+          <!-- Grid -->
+
+        </div>
+        <!-- End Grid Container -->
+      </div>
+    </section>
+    <!-- End Company Products -->
+
+    <!-- Metrics Section -->
+    <section class="relative w-full h-[650px]">
+      <img src="../../assets/images/myponyasia/landscape3.png" alt="Metrics Image" class="object-cover h-[650px]">
+      <div class="absolute top-0 bg-gradient-to-r from-black via-black/75 w-full h-full" />
+      <div class="absolute top-0 p-16 w-1/2 space-y-2">
+        <h3 class="font-semibold text-lg bg-clip-text text-transparent bg-gradient-to-r from-purple-200  to-purple-800">Tentang Bisnis kita</h3>
+        <h1 class="text-3xl font-bold" v-html="'AAAA Sagiri-chan >-<'"></h1>
+        <p class="text-white/80 text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore expedita consequuntur obcaecati repellendus veniam ad exercitationem modi non, eius, voluptatum reprehenderit atque placeat voluptas numquam necessitatibus quo. Harum, iure eveniet.</p>
+
+        <div class="flex py-10 space-x-10">
+          <div class="w-1/2 space-y-10">
+            <div>
+              <h1 class="font-extrabold text-3xl">18K+</h1>
+              <p class="line-clamp-2"><b>Lorem</b> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias ea ab dolor odit dignissimos architecto blanditiis beatae asperiores sed voluptatum.</p>
+            </div>
+            <div>
+              <h1 class="font-extrabold text-3xl">18%</h1>
+              <p class="line-clamp-2"><b>Lorem</b> ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+          <div class="w-1/2 space-y-10">
+            <div>
+              <h1 class="font-extrabold text-3xl">20K+</h1>
+              <p class="line-clamp-2"><b>Lorem</b> ipsum dolor sit amet consectetur.</p>
+            </div>
+            <div>
+              <h1 class="font-extrabold text-3xl">1K+</h1>
+              <p class="line-clamp-2"><b>Lorem</b> ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Metrics Section -->
+
+    <!-- Get Started Section -->
+    <section class="flex w-[90%] mx-auto text-black py-20">
+      <div class="w-1/2">
+        <h1 class="text-3xl font-extrabold">Ready to join us?</h1>
+        <h2 class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-indigo-600">Lorem ipsum dolor sit amet, consectetur</h2>
+      </div>
+      <div class="w-1/2 ">
+        <div class="flex justify-end space-x-5">
+          <button class="btn">learn More</button>
+          <button class="p-3 px-5 text-indigo-700 bg-indigo-200/50 duration-150 font-semibold rounded-lg">Get Started</button>
+        </div>
+      </div>
+    </section>
+    <!-- End Get Started Section -->
+
+    <!-- Footer -->
+    <footer class="bg-trueGray-300/50 text-black/70 font-semibold flex py-20">  
+      <div class="w-[60%] px-10 flex space-x-10">
+        <div class="flex-grow flex flex-col space-y-5">
+          <h3>Header 1</h3>
+          <a href="#">Title 1</a>
+          <a href="#">Title 2</a>
+          <a href="#">Title 3</a>
+          <a href="#">Title 4</a>
+        </div>
+        <div class="flex-grow flex flex-col space-y-5">
+          <h3>Header 1</h3>
+          <a href="#">Title 1</a>
+          <a href="#">Title 2</a>
+          <a href="#">Title 3</a>
+          <a href="#">Title 3</a>
+          <a href="#">Title 4</a>
+        </div>
+        <div class="flex-grow flex flex-col space-y-5">
+          <h3>Header 1</h3>
+          <a href="#">Title 1</a>
+          <a href="#">Title 2</a>
+          <a href="#">Title 4</a>
+        </div>
+        <div class="flex-grow flex flex-col space-y-5">
+          <h3>Header 1</h3>
+          <a href="#">Title 1</a>
+          <a href="#">Title 2</a>
+          <a href="#">Title 3</a>
+          <a href="#">Title 3</a>
+          <a href="#">Title 3</a>
+          <a href="#">Title 4</a>
+        </div>
+      </div>
+      <div class="w-[40%] px-10 text-black/50">
+        <p>Subscribe Lorem, ipsum dolor.</p>
+        <p class="mt-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, deserunt.</p>
+        <div class="flex space-x-5 mt-5">
+          <input type="text" placeholder="Enter your email" class="pr-10 pl-3 rounded-lg ring-1 ring-trueGray-500/50">
+          <button class="btn">Subscribe</button>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+    
   </div>
 </template>
+
+<style>
+  .bg-primary {
+    @apply bg-indigo-600;
+  }
+
+  .bg-secondary {
+    @apply bg-trueGray-500;
+  }
+
+  .text-primary {
+    @apply text-indigo-600;
+  }
+
+  .text-secondary {
+    @apply text-trueGray-500;
+  }
+
+  .btn {
+    @apply p-3 px-5 bg-gradient-to-r from-purple-600 bg-indigo-600 text-white font-bold rounded-lg;
+  }
+</style>
