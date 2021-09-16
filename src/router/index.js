@@ -18,6 +18,7 @@ import MyPonyAsiaPonyHome from '../views/myponyasia/pony/Home.vue'
 
 import Admin1 from '../views/Admin/Admin1.vue'
 import Admin2 from '../views/Admin/Admin2.vue'
+import Admin3 from '../views/Admin/Admin3.vue'
 
 import Spotify2021 from '../views/gabut/spotify2021.vue'
 
@@ -57,6 +58,12 @@ const routes = [
         name: 'Admin2',
         // nama komponen yang di import
         component: Admin2,
+    },
+    {
+        path: '/admin3',
+        name: 'Admin3',
+        // nama komponen yang di import
+        component: Admin3,
     },
     // End Admin Template
 

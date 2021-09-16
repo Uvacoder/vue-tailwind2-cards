@@ -1,6 +1,7 @@
 <template>
   <div class="bg-trueGray-800 min-h-screen max-h-full text-gray-100">
     <div class="container mx-auto pt-10 pb-3">
+
       <!-- Anime MyPonyAsia -->
       <div class="mb-10 text-center space-y-3">
         <span class="text-3xl font-bold capitalize">Anime@MyPonyAsia</span>
@@ -32,6 +33,7 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-9 font-bold justify-items-center">
             <router-link to="/admin1" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Admin 1 </router-link>
             <router-link to="/admin2" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Admin 2 </router-link>
+            <router-link to="/admin3" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Admin 3 </router-link>
         </div> 
       </div>
       <!-- End Admin Template -->
