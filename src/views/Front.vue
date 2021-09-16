@@ -34,6 +34,7 @@
             <router-link to="/admin1" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Admin 1 </router-link>
             <router-link to="/admin2" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Admin 2 </router-link>
             <router-link to="/admin3" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Admin 3 </router-link>
+            <router-link to="/admin4" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center"> Admin 4 </router-link>
         </div> 
       </div>
       <!-- End Admin Template -->
