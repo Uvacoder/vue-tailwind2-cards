@@ -24,6 +24,7 @@ import Admin4 from '../views/Admin/Admin4.vue'
 import Spotify2021 from '../views/gabut/spotify2021.vue'
 
 import LandingPage1 from '../views/landingpage/landingpage1.vue'
+import LandingPage2 from '../views/landingpage/landingpage2.vue'
 
 const routes = [
     // Route untuk about
@@ -149,6 +150,11 @@ const routes = [
       path: '/landingpage1',
       name: 'LandingPage1',
       component: LandingPage1,
+    },
+    {
+      path: '/landingpage2',
+      name: 'LandingPage2',
+      component: LandingPage2,
     },
     // End Landing Page Links
 ]

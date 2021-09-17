@@ -44,6 +44,7 @@
         <span class="text-3xl font-bold capitalize">Landing Page</span>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-9 font-bold justify-items-center">
             <router-link to="/landingpage1" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">Landing Page 1</router-link>
+            <router-link to="/landingpage2" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">Landing Page 2</router-link>
         </div> 
       </div>
       <!-- End Landing Page -->
@@ -52,7 +53,7 @@
       <div class="my-10 text-center space-y-3">
         <span class="text-3xl font-bold">Gabut :v</span>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-9 font-bold justify-items-center">
-            <router-link to="/spotify2021" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">Spotify 2021</router-link>
+            <router-link to="/spotify2021" class="py-10 w-3/4 bg-purple-700 rounded-lg text-center">Spotifiru 2021</router-link>
         </div> 
       </div>
       <!-- End Gabut Project -->
