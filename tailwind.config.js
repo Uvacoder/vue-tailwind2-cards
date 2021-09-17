@@ -11,6 +11,8 @@ module.exports = {
     extend: {
       colors: {
         'trueGray': colors.trueGray,
+        'emerald': colors.emerald,
+        'sky': colors.sky,
         pony: {
           'primary': '#303030',
           'secondary': '#212121',
