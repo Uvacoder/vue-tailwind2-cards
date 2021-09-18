@@ -26,7 +26,7 @@
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0",
+    "eslint-plugin-vue": "^7.18.0",
     "postcss": "^7.0.35",
     "sass": "^1.35.2",
     "sass-loader": "10",
