@@ -22,6 +22,7 @@ import Admin3 from '../views/Admin/Admin3.vue'
 import Admin4 from '../views/Admin/Admin4.vue'
 
 import Spotify2021 from '../views/gabut/spotify2021.vue'
+import Netfliksu2021 from '../views/gabut/netfliksu2021.vue'
 
 import LandingPage1 from '../views/landingpage/landingpage1.vue'
 import LandingPage2 from '../views/landingpage/landingpage2.vue'
@@ -142,6 +143,11 @@ const routes = [
       path: '/spotify2021',
       name: 'Spotify2021',
       component: Spotify2021,
+    },
+    {
+      path: '/netfliksu2021',
+      name: 'netfliksu2021',
+      component: Netfliksu2021,
     },
     // End Gabut (Clone) Links
 
