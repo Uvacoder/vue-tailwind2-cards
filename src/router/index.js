@@ -27,6 +27,9 @@ import Netfliksu2021 from '../views/gabut/netfliksu2021.vue'
 import LandingPage1 from '../views/landingpage/landingpage1.vue'
 import LandingPage2 from '../views/landingpage/landingpage2.vue'
 
+import zakatHome from '../views/zakat/zakatHome.vue'
+import zakatCalculate from '../views/zakat/zakatCalculate.vue'
+
 const routes = [
     // Route untuk about
     {
@@ -163,6 +166,19 @@ const routes = [
       component: LandingPage2,
     },
     // End Landing Page Links
+    
+    // Zakat Page Links
+    {
+      path: '/zakathome',
+      name: 'zakatHome',
+      component: zakatHome,
+    },
+    {
+      path: '/zakatCalculate',
+      name: 'zakatCalculate',
+      component: zakatCalculate,
+    },
+    // End Zakat Page Links
 ]
 
 const router = createRouter({
