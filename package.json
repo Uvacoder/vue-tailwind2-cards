@@ -28,7 +28,7 @@
     "eslint": "^6.7.2",
     "postcss": "^8.3.6",
     "eslint-plugin-vue": "^7.18.0",
-    "sass": "^1.35.2",
+    "sass": "^1.42.0",
     "sass-loader": "10",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0"
   },
