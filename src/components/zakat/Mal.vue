@@ -338,8 +338,14 @@ export default {
       this.hutang = '',
       this.penghasilan = '',
       this.totalEmas = '',
-      this.hargaEmas = ''
-    }
+      this.hargaEmas = '',
+      this.totalSapi = '',
+      this.totalKambing = '',
+      this.totalPanen = '',
+      this.hargaPanen = '',
+      this.tipePertanian = ''
+    },
+
   },
 
 
@@ -451,6 +457,13 @@ export default {
     },
 
   },
+
+  watch: {
+    secondaryTabProp(){
+      // Watch if secondaryTabProp is change
+      return this.resetInput()
+    }
+  }
 
 }
 </script>
