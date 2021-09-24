@@ -316,7 +316,6 @@ export default {
       nisabKambing: 40,
       nisabPanen: 750,
 
-
     }
   },
 
@@ -382,49 +381,43 @@ export default {
     // },
 
     sumZakatSapi(){
-        let minX = 30
-        let maxX = 39
-        let minY = 40
-        let maxY = 59
-        let jumlah = 1
-        let next = false
+      let min = 0
+      let jumlah = 1
+      let maxX = 39
+      let maxY = 59
 
-        if (this.totalSapi <= maxX ) {
-            return jumlah + ' ekor sapi tabi <br> <span class="text-sm"> (Umur 1 tahun, masuk tahun ke-2) </span>'
-        } else if (this.totalSapi <= maxY){
-            return jumlah + ' ekor sapi musinnah <br> <span class="text-sm"> (Umur 2 tahun, masuk tahun ke-3) </span>'
-        } else {
+      if (this.totalSapi <= maxX) {
+        return jumlah + ' ekor sapi tabi <br> <span class="text-sm"> (Umur 1 tahun, masuk tahun ke-2) </span>'
+      } else if (this.totalSapi <= maxY){
+        return jumlah + ' ekor sapi musinnah <br> <span class="text-sm"> (Umur 2 tahun, masuk tahun ke-3) </span>'
+      }
 
-          do {
-          minX = 60
-          maxX = 79
-          minY = 80
-          maxY = 89
-          jumlah++
+      maxX = 59
+      maxY = 39
 
-          if (this.totalSapi >= minX && this.totalSapi <= minY ) {
-            return jumlah + ' ekor sapi tabi <br> <span class="text-sm"> (Umur 1 tahun, masuk tahun ke-2) </span>'
-          } else if (this.totalSapi >= minY && this.totalSapi <= maxY){
-            return jumlah + ' ekor sapi musinnah <br> <span class="text-sm"> (Umur 2 tahun, masuk tahun ke-3) </span>'
-          }
+      while (min < jumlah) {
 
-          minX += 30
-          maxX += 30
-          minY += 40
-
-          // console.log('jumlah = '+ );
-          console.log('Min x = '+ minX);
-          // console.log('max y = '+ maxX);
-          console.log('Min y = '+ minY);
-          // console.log('max y = '+ maxY);
-
-        } while (next == true);
+        // if totalSapi <= MaxX
+        if (this.totalSapi <= maxY) {
+          return jumlah + ' ekor sapi tabi <br> <span class="text-sm"> (Umur 1 tahun, masuk tahun ke-2) </span>'
+        } else if (this.totalSapi <= maxX){
+          return jumlah + ' ekor sapi musinnah <br> <span class="text-sm"> (Umur 2 tahun, masuk tahun ke-3) </span>'
         }
-        
 
-          
+        // If not, maxX + 30,  MaxY + 40
+        maxX += 30
+        maxY += 40
+        // add++
+        min++
+        jumlah++
 
-        return jumlah
+        console.log(jumlah);
+        console.log(maxX);
+        console.log(maxY);
+      }
+
+      return ''
+      
     },
 
     sumZakatKambing(){
