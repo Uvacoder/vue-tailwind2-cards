@@ -213,21 +213,70 @@
     </div>
     <!-- End Zakat Mal Kambing -->
 
-    <!-- Zakat Mal Unggas -->
-    <div v-show="secondaryTabProp == 'unggas'">
-      {{ secondaryTabProp }}
-    </div>
-    <!-- End Zakat Mal Unggas -->
-    
-    <!-- Zakat Mal Dagangan -->
-    <div v-show="secondaryTabProp == 'dagangan'">
-      {{ secondaryTabProp }}
-    </div>
-    <!-- End Zakat Mal Dagangan -->
-
     <!-- Zakat Mal Pertanian -->
     <div v-show="secondaryTabProp == 'pertanian'">
-      {{ secondaryTabProp }}
+      
+      <!-- Content -->
+      <div class="flex justify-between space-x-10">
+        
+        <!-- Left Content -->
+        <div class="w-1/2 space-y-4">
+          
+          <div class="flex flex-col space-y-1">
+            <label for="nama">Nama Muzaki</label>
+            <input v-model="nama" type="text" id="nama" class="ring-2 ring-trueGray-300 focus:ring-[#1dad52] rounded-lg px-3 p-1.5 focus:outline-none outline-none duration-150">
+          </div>
+
+          <div class="flex flex-col space-y-1">
+            <label for="totalPanen">Total Panen (kg)</label>
+            <input v-model="totalPanen" type="number" id="totalPanen" class="ring-2 ring-trueGray-300 focus:ring-[#1dad52] rounded-lg px-3 p-1.5 focus:outline-none outline-none duration-150" placeholder="0">
+          </div>
+
+          <div class="flex flex-col space-y-1">
+            <label for="hargaPanen">Harga per kg</label>
+            <input v-model="hargaPanen" type="number" id="hargaPanen" class="ring-2 ring-trueGray-300 focus:ring-[#1dad52] rounded-lg px-3 p-1.5 focus:outline-none outline-none duration-150" placeholder="0">
+          </div>
+
+          <div class="flex flex-col space-y-3">
+            <div class="flex items-center space-x-2">
+            <input v-model="tipePertanian" type="radio" id="denganBiaya" value="0.05">
+            <label for="denganBiaya">Dengan Biaya (Irigasi)</label>
+            </div>
+            <div class="flex items-center space-x-2">
+              <input v-model="tipePertanian" type="radio" id="tanpaBiaya" value="0.10" >
+              <label for="tanpaBiaya">Tanpa Biaya (Hujan/sungai)</label>
+            </div>
+            <div class="flex items-center space-x-2">
+              <input v-model="tipePertanian" type="radio" id="campuran" value="0.07" >
+              <label for="campuran">Campuran (Irigasi + Hujan/Sungai)</label>
+            </div>
+          </div>
+
+        </div>
+        <!-- End Left Content -->
+
+        <!-- Right Content -->
+        <div v-if="totalPanen > nisabPanen" class="w-1/2 flex flex-col justify-center items-center">
+          <h2 class="">Total Zakat yang perlu dibayar</h2>
+          <h3 class="font-semibold text-lg text-center mt-3"> {{ sumZakatPertanian }} </h3>
+        </div>
+
+        <div v-else class="w-1/2 flex flex-col justify-center items-center">
+          <h2 class="font-semibold capitalize"> Total panen anda belum memenuhi Nisab</h2>
+          <h3>Nisab pertanian adalah {{ nisabPanen }} kg </h3>
+        </div>
+        <!-- End Right Content -->
+
+      </div>
+      <!-- End Content -->
+
+      <!-- Button -->
+      <div class="flex justify-end space-x-5 mt-10">
+        <button  class="font-semibold hover:opacity-50 duration-150">Reset</button>
+        <button class="font-semibold ring-2 ring-[#1dad52] text-[#1dad52] hover:text-white hover:bg-[#1dad52] p-2 px-5 rounded-xl duration-150">Simpan</button>
+      </div>
+      <!-- End Button -->
+
     </div>
     <!-- End Zakat Mal Pertanian -->
 
@@ -255,11 +304,17 @@ export default {
       // Zakat Mal Kambing
       totalKambing: '',
 
+      // Zakat Mal Pertanian
+      totalPanen: '',
+      hargaPanen: '',
+      tipePertanian: '',
+
       // Nisab
       nisabPenghasilan: 100000,
       nisabEmas: 80,
       nisabSapi: 30,
       nisabKambing: 40,
+      nisabPanen: 750,
 
 
     }
@@ -396,6 +451,10 @@ export default {
       }
 
       return false
+    },
+
+    sumZakatPertanian(){
+      return this.covertToCurrency((this.hargaPanen * this.totalPanen) * this.tipePertanian)
     },
 
   },
