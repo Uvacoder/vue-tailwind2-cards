@@ -26,8 +26,6 @@
         <button @click="updateSecondaryTab('emas')" :class="[secondaryTab == 'emas' ? 'text-white bg-[#1dad52]' : 'bg-white text-[#1dad52]' ]" class="py-2 px-5 duration-200 font-semibold">Emas</button>
         <button @click="updateSecondaryTab('sapi')" :class="[secondaryTab == 'sapi' ? 'text-white bg-[#1dad52]' : 'bg-white text-[#1dad52]' ]" class="py-2 px-5 duration-200 font-semibold">Sapi</button>
         <button @click="updateSecondaryTab('kambing')" :class="[secondaryTab == 'kambing' ? 'text-white bg-[#1dad52]' : 'bg-white text-[#1dad52]' ]" class="py-2 px-5 duration-200 font-semibold">Kambing</button>
-        <button @click="updateSecondaryTab('unggas')" :class="[secondaryTab == 'unggas' ? 'text-white bg-[#1dad52]' : 'bg-white text-[#1dad52]' ]" class="py-2 px-5 duration-200 font-semibold">Unggas</button>
-        <button @click="updateSecondaryTab('dagangan')" :class="[secondaryTab == 'dagangan' ? 'text-white bg-[#1dad52]' : 'bg-white text-[#1dad52]' ]" class="py-2 px-5 duration-200 font-semibold">Dagangan</button>
         <button @click="updateSecondaryTab('pertanian')" :class="[secondaryTab == 'pertanian' ? 'text-white bg-[#1dad52]' : 'bg-white text-[#1dad52]' ]" class="py-2 px-5 duration-200 font-semibold rounded-r-xl">Pertanian</button>
       </div>
       <!-- End Mal Secondary Tab -->
