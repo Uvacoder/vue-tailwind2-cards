@@ -54,7 +54,7 @@
         </thead>
 
         <tbody class="divide-y-[1px] divide-gray-300">
-          <tr v-for="(data, index) in pezakat" :key="index">
+          <tr v-for="(data, index) in pezakat" :key="index" class="bg-none" :class="[data.status == 'success' ? 'bg-green-100' : ( data.status == 'failed' ? 'bg-red-100' : 'bg-none')]">
             <td class="text-center p-1.5"> {{ index + 1 }} </td>
             <td class="truncate px-5"> {{ data.pezakat }} </td>
             <td class="text-center"> {{ data.tipeZakat }} </td>
@@ -76,23 +76,47 @@
 
       <!-- Button -->
       <div class="flex justify-end space-x-5 mt-10">
-        <button  @click="pezakat = []" class="font-semibold hover:opacity-50 duration-150">Reset</button>
-        <button class="font-semibold ring-2 ring-[#1dad52] text-[#1dad52] hover:text-white hover:bg-[#1dad52] p-2 px-5 rounded-xl duration-150">Simpan</button>
+        <button  @click="pezakat = []; saveDataStatus = {}" class="font-semibold hover:opacity-50 duration-150">Reset</button>
+        <button @click="saveData()" class="font-semibold ring-2 ring-[#1dad52] text-[#1dad52] hover:text-white hover:bg-[#1dad52] p-2 px-5 rounded-xl duration-150">Simpan</button>
       </div>
       <!-- Button -->
+
+      <!-- Loading Message -->
+      <div v-if="saveDataStatus.loading == true">
+        <p class="text-black font-semibold"> Loading...</p>
+      </div>
+      <!-- Loading Message -->
+
+      <!-- Fail Message -->
+        <div v-if="saveDataStatus.fail">
+          <p class="text-red-500 font-semibold">{{ saveDataStatus.fail }} Data gagal disimpan</p>
+        </div>
+      <!-- End Fail Message -->
+
+      <!-- Success Message -->
+        <div v-if="saveDataStatus.success">
+          <p class="text-black font-semibold"> {{ saveDataStatus.success }} Data berhasil disimpan</p>
+        </div>
+      <!-- Success Message -->
+      
 
     </div>
   <!-- End Zakat Fitrah Beras -->
 </template>
 
 <script>
-
+import axios from 'axios'
 export default {
   data() {
     return {
       nama: '',
       jumlahZakat: '',
       pezakat: [],
+      saveDataStatus: {
+        loading: false,
+        success: null,
+        fail: null,
+      }
     }
   },
 
@@ -108,6 +132,7 @@ export default {
                           'pezakat': nama,
                           'tipeZakat': tab,
                           'jumlahZakat': jumlah,
+                          'status': '',
                         })
       this.nama = ''
     },
@@ -115,7 +140,37 @@ export default {
     covertToCurrency(params){
       return  new Intl.NumberFormat('id-ID', {style:'currency', currency:'IDR'} )
               .format(params)
+    },
+
+    saveData(){
+      // Reset Save data
+      this.saveDataStatus.success = null
+      this.saveDataStatus.fail = null
+      this.saveDataStatus.loading = true
+
+      for (let i = 0; i < this.pezakat.length; i++) {
+        
+        axios.post('http://127.0.0.1:8000/api/zakat/fitrah',{
+          nama: this.pezakat[i].pezakat,
+          jenis: this.pezakat[i].tipeZakat,
+          jumlah: this.pezakat[i].jumlahZakat
+        })
+
+        .then( () => {
+          this.pezakat[i].status = 'success' 
+          this.saveDataStatus.success++;
+          this.saveDataStatus.loading = false
+        })
+
+        .catch( (err)=>{
+          this.pezakat[i].status = 'failed'
+          this.saveDataStatus.fail++
+          console.log(err);
+        })
+      }
+
     }
+    
   },
   
   computed: {
