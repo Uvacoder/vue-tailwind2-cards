@@ -77,7 +77,12 @@
       <!-- Button -->
       <div class="flex justify-end space-x-5 mt-10">
         <button  @click="pezakat = []; saveDataStatus = {}" class="font-semibold hover:opacity-50 duration-150">Reset</button>
-        <button @click="saveData()" class="font-semibold ring-2 ring-[#1dad52] text-[#1dad52] hover:text-white hover:bg-[#1dad52] p-2 px-5 rounded-xl duration-150">Simpan</button>
+        <button 
+          v-show="saveDataStatus.success == null && saveDataStatus.fail == null" 
+          @click="saveData()" 
+          class="font-semibold ring-2 ring-[#1dad52] text-[#1dad52] hover:text-white hover:bg-[#1dad52] p-2 px-5 rounded-xl duration-150"
+        >
+        Simpan</button>
       </div>
       <!-- Button -->
 
@@ -143,7 +148,7 @@ export default {
     },
 
     saveData(){
-      // Reset Save data
+      // Reset SaveData Status
       this.saveDataStatus.success = null
       this.saveDataStatus.fail = null
       this.saveDataStatus.loading = true
