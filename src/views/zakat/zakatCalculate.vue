@@ -24,6 +24,12 @@
         />
       </div>
 
+      <div v-show="primaryTab == 'infaq'" >
+        <Infaq 
+          :secondaryTabProp = secondaryTab  
+        />
+      </div>
+
       <!-- Template -->
       <!-- <div  class="bg-white rounded-xl h-96 shadow-xl">
          {{ primaryTab }} {{ secondaryTab }}
@@ -46,6 +52,7 @@ import Switcher from '@/components/zakat/Switcher.vue'
 
 import ZakatFitrah from '@/components/zakat/Fitrah.vue'
 import ZakatMal from '@/components/zakat/Mal.vue'
+import Infaq from '@/components/zakat/Infaq.vue'
 
 export default {
   data() {
@@ -61,6 +68,7 @@ export default {
     Switcher,
     ZakatFitrah,
     ZakatMal,
+    Infaq,
   },
 
   methods: {
