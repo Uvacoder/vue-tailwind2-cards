@@ -13,6 +13,7 @@
           <div class="flex flex-col space-y-1">
             <label for="nama">Nama Muzaki</label>
             <input v-model="nama" type="text" id="nama" class="ring-2 ring-trueGray-300 focus:ring-[#1dad52] rounded-lg px-3 p-1.5 focus:outline-none outline-none duration-150">
+            <span v-show="saveDataStatus.fail" class="text-red-500 text-xs"> {{ saveDataStatus.fail }} </span>
           </div>
 
           <div class="flex flex-col space-y-1">
@@ -22,7 +23,7 @@
 
           <div class="flex flex-col space-y-1">
             <label for="keperluan">Keperluan per bulan</label>
-            <input v-model="keperluan" type="number" class="ring-2 ring-trueGray-300 focus:ring-[#1dad52] rounded-lg px-3 p-1.5 focus:outline-none outline-none duration-150" placeholder="0">
+            <input v-model="keperluan" type="number" id="keperluan" class="ring-2 ring-trueGray-300 focus:ring-[#1dad52] rounded-lg px-3 p-1.5 focus:outline-none outline-none duration-150" placeholder="0">
           </div>
 
           <div class="flex flex-col space-y-1">
@@ -34,10 +35,23 @@
         <!-- End Left Content -->
 
         <!-- Right Content -->
-        <div v-if="penghasilan > nisabPenghasilan" class="w-1/2 flex flex-col justify-center items-center">
+        <div v-if="penghasilan > nisabPenghasilan && keperluan" class="w-1/2 flex flex-col justify-center items-center">
           <h2>Total Zakat yang perlu dibayar</h2>
-          <h3 class="font-semibold text-lg"> {{ sumZakatPenghasilan }} </h3>
+          <h3 class="font-semibold text-lg"> {{ covertToCurrency(sumZakatPenghasilan) }} </h3>
+          
+          <!-- Success Message -->
+          <h2 v-show="saveDataStatus.loading" class="mt-10 font-semibold">Sedang Menyimpan Data</h2>
+          <!-- End Success Message -->
+
+          <!-- Success Message -->
+          <h2 v-show="saveDataStatus.success" class="mt-10 font-semibold text-[#1dad52]">Data Berhasil Disimpan</h2>
+          <!-- End Success Message -->
+
+          <!-- Failed Message -->
+          <h2 v-show="saveDataStatus.fail" class="mt-10 font-semibold text-red-500">Data Gagal Disimpan</h2>
+          <!-- End Failed Message -->
         </div>
+
         <div v-else class="w-1/2 flex flex-col justify-center items-center">
           <h2 class="font-semibold capitalize"> Total Penghasilan Anda belum memenuhi Nisab</h2>
           <h3 class="text-sm">Minimal Nisab Penghasilan adalah {{ covertToCurrency(nisabPenghasilan) }} </h3>
@@ -50,7 +64,7 @@
       <!-- Button -->
       <div class="flex justify-end space-x-5 mt-10">
         <button @click="resetInput()" class="font-semibold hover:opacity-50 duration-150">Reset</button>
-        <button class="font-semibold ring-2 ring-[#1dad52] text-[#1dad52] hover:text-white hover:bg-[#1dad52] p-2 px-5 rounded-xl duration-150">Simpan</button>
+        <button :disabled="penghasilan < nisabPenghasilan || !keperluan" v-show="saveDataStatus.success == null" @click="saveZakatpenghasilan()" :class="[penghasilan > nisabPenghasilan && keperluan ? 'ring-[#1dad52] text-[#1dad52] hover:bg-[#1dad52] hover:text-white' : 'ring-gray-500 text-gray-500' ]" class="font-semibold ring-2 p-2 px-5 rounded-xl duration-150 transition-all">Simpan</button>
       </div>
       <!-- End Button -->
 
@@ -284,6 +298,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
@@ -316,6 +331,13 @@ export default {
       nisabKambing: 40,
       nisabPanen: 750,
 
+      // Server Response
+      saveDataStatus: {
+        loading: false,
+        success: null,
+        fail: null,
+      },
+
     }
   },
 
@@ -344,14 +366,49 @@ export default {
       this.totalPanen = '',
       this.hargaPanen = '',
       this.tipePertanian = ''
+      this.saveDataStatus = {loading: false, success: null, fail: null}
     },
+
+    saveZakatpenghasilan(){
+      // enable Loading State
+      this.saveDataStatus.loading = true
+
+      // Reset Status
+      this.saveDataStatus.success = null
+      this.saveDataStatus.fail = null
+
+      // Save With Axios
+      axios.post('http://127.0.0.1:8000/api/zakat/mal', {
+        nama: this.nama,
+        jenis: this.secondaryTabProp,
+        data: {
+                penghasilanPerBulan: this.penghasilan,
+                keperluanPerBulan: this.keperluan,
+                hutang: this.hutang || 0
+              },
+        total: this.sumZakatPenghasilan
+      })
+      
+      .then( () => {
+        this.saveDataStatus.loading = false
+        this.saveDataStatus.success = true
+      })
+
+      .catch( (err) => {
+        this.saveDataStatus.loading = false
+        // Form Validation nama
+        return this.saveDataStatus.fail = err.response.data.errors.nama[0]
+      })
+      // End Save With Axios
+
+    }
 
   },
 
 
   computed: {
     sumZakatPenghasilan(){
-      return this.covertToCurrency((this.penghasilan - this.keperluan - this.hutang) * 0.025)
+      return (this.penghasilan - this.keperluan - this.hutang) * 0.025
     },
 
     sumZakatEmas(){
