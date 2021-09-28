@@ -329,10 +329,6 @@
               <input v-model="tipePertanian" type="radio" id="tanpaBiaya" value="0.10" >
               <label for="tanpaBiaya">Tanpa Biaya (Hujan/sungai)</label>
             </div>
-            <div class="flex items-center space-x-2">
-              <input v-model="tipePertanian" type="radio" id="campuran" value="0.07" >
-              <label for="campuran">Campuran (Irigasi + Hujan/Sungai)</label>
-            </div>
           </div>
 
         </div>
