@@ -3,35 +3,13 @@ import About from '../views/About.vue'
 import ToDoList from '../views/ToDoList.vue'
 import Front from '../views/Front.vue'
 
-import MyPonyAsiaSwitching from '../views/myponyasia/Switcher.vue'
-import MyPonyAsiaHome from '../views/myponyasia/Home.vue'
-import MyPonyAsiaAnime from '../views/myponyasia/Anime.vue'
-import MyPonyAsiaAnime2 from '../views/myponyasia/Anime2.vue'
-import MyPonyAsiaStreaming from '../views/myponyasia/Streaming.vue'
-import MyPonyAsiaStreaming2 from '../views/myponyasia/Streaming2.vue'
-import MyPonyAsiaFind from '../views/myponyasia/Find.vue'
-import MyPonyAsiaFindBy from '../views/myponyasia/FindBy.vue'
-import MyPonyAsiaAbout from '../views/myponyasia/About.vue'
-import MyPonyAsiaPrivacyPolicy from '../views/myponyasia/PrivacyPolicy.vue'
-
-import MyPonyAsiaPonyHome from '../views/myponyasia/pony/Home.vue'
-
-import Admin1 from '../views/Admin/Admin1.vue'
-import Admin2 from '../views/Admin/Admin2.vue'
-import Admin3 from '../views/Admin/Admin3.vue'
-import Admin4 from '../views/Admin/Admin4.vue'
-
-import Spotify2021 from '../views/gabut/spotify2021.vue'
-import Netfliksu2021 from '../views/gabut/netfliksu2021.vue'
-
-import LandingPage1 from '../views/landingpage/landingpage1.vue'
-import LandingPage2 from '../views/landingpage/landingpage2.vue'
-
-import zakatHome from '../views/zakat/zakatHome.vue'
-import zakatCalculate from '../views/zakat/zakatCalculate.vue'
+import MPALinks from './myponyasia.js'
+import AdminLinks from './admins.js'
+import ZakatLinks from './zakat.js'
+import CloneLinks from './Webclones.js'
+import LandingPageLinks from './landingPage.js'
 
 const routes = [
-    // Route untuk about
     {
         path: '/',
         name: 'Front',
@@ -52,133 +30,13 @@ const routes = [
         component: ToDoList,
     },
 
-    // Admin Template
-    {
-        path: '/admin1',
-        name: 'Admin1',
-        // nama komponen yang di import
-        component: Admin1,
-    },
-    {
-        path: '/admin2',
-        name: 'Admin2',
-        // nama komponen yang di import
-        component: Admin2,
-    },
-    {
-        path: '/admin3',
-        name: 'Admin3',
-        // nama komponen yang di import
-        component: Admin3,
-    },
-    {
-        path: '/admin4',
-        name: 'Admin4',
-        // nama komponen yang di import
-        component: Admin4,
-    },
-    // End Admin Template
+    // Spread operator (loop all array/object)
+    ...MPALinks,
+    ...AdminLinks,
+    ...ZakatLinks,
+    ...CloneLinks,
+    ...LandingPageLinks,
 
-
-    // MyPonyAsia Links
-    {
-      path: '/myponyasia',
-      name: 'MPASwitching',
-      component: MyPonyAsiaSwitching,
-    },
-    {
-      path: '/myponyasia/home',
-      name: 'MPAHome',
-      component: MyPonyAsiaHome,
-    },
-    {
-      path: '/myponyasia/streaming',
-      name: 'MPAStreaming',
-      component: MyPonyAsiaStreaming,
-    },
-    {
-      path: '/myponyasia/streaming2',
-      name: 'MPAStreaming2',
-      component: MyPonyAsiaStreaming2,
-    },
-    {
-      path: '/myponyasia/anime',
-      name: 'MPAAnime',
-      component: MyPonyAsiaAnime,
-    },
-    {
-      path: '/myponyasia/anime2',
-      name: 'MPAAnime2',
-      component: MyPonyAsiaAnime2,
-    },
-    {
-      path: '/myponyasia/:findBy',
-      name: 'MPAFind',
-      component: MyPonyAsiaFind,
-    },
-    {
-      path: '/myponyasia/:findBy/:id',
-      name: 'MPAFindBy',
-      component: MyPonyAsiaFindBy,
-    },
-    {
-      path: '/myponyasia/about',
-      name: 'MPAAbout',
-      component: MyPonyAsiaAbout,
-    },
-    {
-      path: '/myponyasia/privacy',
-      name: 'MPAPrivacyPolicy',
-      component: MyPonyAsiaPrivacyPolicy,
-    },
-    // End MyPonyAsia Links
-    
-    // MyPonyAsia Pony Links
-    {
-      path: '/myponyasia/pony/home',
-      name: 'MyPonyAsiaPonyHome',
-      component: MyPonyAsiaPonyHome,
-    },
-    // End MyPonyAsia Pony Links
-
-    // Gabut (Clone) Links
-    {
-      path: '/spotify2021',
-      name: 'Spotify2021',
-      component: Spotify2021,
-    },
-    {
-      path: '/netfliksu2021',
-      name: 'netfliksu2021',
-      component: Netfliksu2021,
-    },
-    // End Gabut (Clone) Links
-
-    // Landing Page Links
-    {
-      path: '/landingpage1',
-      name: 'LandingPage1',
-      component: LandingPage1,
-    },
-    {
-      path: '/landingpage2',
-      name: 'LandingPage2',
-      component: LandingPage2,
-    },
-    // End Landing Page Links
-    
-    // Zakat Page Links
-    {
-      path: '/zakathome',
-      name: 'zakatHome',
-      component: zakatHome,
-    },
-    {
-      path: '/zakatCalculate',
-      name: 'zakatCalculate',
-      component: zakatCalculate,
-    },
-    // End Zakat Page Links
 ]
 
 const router = createRouter({
