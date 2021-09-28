@@ -68,7 +68,7 @@
         <!-- If Data -->
         <tbody v-if="items.length > 0 && !isLoading">
           <tr v-for="(item, index) in items" :key="index" class="text-sm mb-16 text-center cursor-default even:bg-gray-100 duration-150">
-            <td class="py-2 truncate px-1"> {{ index + 1 }} </td>
+            <td class="py-2 truncate px-1"> {{ (index + 1)  + (perPage * (currentPage - 1)) }} </td>
             <td class="py-2 truncate px-1"> {{ item.nama }} </td>
             <td class="truncate px-1"> {{ item.jenis }} </td>
             <td class="truncate px-1"> {{ item.jenis != 'sapi' && item.jenis != 'kambing' ? convertToCurrency(item.total) : item.total }} </td>
@@ -151,7 +151,7 @@
 
       <!-- Modal Header -->
       <div class="text-center py-2 bg-gray-50 rounded-t-lg">
-        <h2 class="text-xl font-semibold">Edit Data</h2>
+        <h2 class="text-xl font-semibold">Detail</h2>
       </div>
       <!-- End Modal Header -->
 
@@ -191,6 +191,9 @@ export default {
       tab: 'penghasilan',
       items: {},
       pagination: {},
+      perPage: '',
+      currentPage: '',
+
       isLoading: false,
       modalOpen: false,
 
@@ -229,6 +232,8 @@ export default {
         console.log(res.data);
         this.pagination = res.data.links
         this.items = res.data.data
+        this.perPage = res.data.per_page
+        this.currentPage = res.data.current_page
         // console.log(this.pagination);
         return this.isLoading = false
       })
@@ -249,6 +254,8 @@ export default {
         // console.log(res.data);
         this.pagination = res.data.links
         this.items = res.data.data
+        this.perPage = res.data.per_page
+        this.currentPage = res.data.current_page
         // console.log(this.pagination);
         return this.isLoading = false
       })
@@ -291,6 +298,8 @@ export default {
         
         this.pagination = res.data.links
         this.items = res.data.data
+        this.perPage = res.data.per_page
+        this.currentPage = res.data.current_page
         return this.isLoading = false
       })
 

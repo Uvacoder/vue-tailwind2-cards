@@ -65,7 +65,7 @@
         <!-- If Data -->
         <tbody v-if="items.length > 0 && !isLoading">
           <tr v-for="(item, index) in items" :key="index" class="text-sm mb-16 text-center cursor-default even:bg-gray-100 duration-150">
-            <td class="py-2 truncate px-1"> {{ index + 1 }} </td>
+            <td class="py-2 truncate px-1"> {{ (index + 1)  + (perPage * (currentPage - 1)) }} </td>
             <td class="py-2 truncate px-1"> {{ item.nama ? item.nama : '-'  }} </td>
             <td class="truncate px-1"> {{ item.jenis ? item.jenis : '-'  }} </td>
             <td class="truncate px-1"> {{ item.jenis == 'uang' ? convertToCurrency(item.jumlah) : item.jumlah }} </td>
@@ -199,13 +199,18 @@ export default {
       tab: 'beras',
       items: {},
       pagination: {},
+      perPage: '',
+      currentPage: '',
+
       isLoading: false,
       modalOpen: false,
+      flashMessage: '',
+
       nama: '',
       jenis: '',
       jumlah: '',
       id: '',
-      flashMessage: '',
+      
 
       keyword: '',
       delaySearch: true
@@ -282,7 +287,9 @@ export default {
         // console.log(res.data);
         this.pagination = res.data.links
         this.items = res.data.data
-        console.log(this.pagination);
+        this.perPage = res.data.per_page
+        this.currentPage = res.data.current_page
+        // console.log(this.pagination);
         return this.isLoading = false
       })
 
@@ -302,6 +309,8 @@ export default {
         // console.log(res.data);
         this.pagination = res.data.links
         this.items = res.data.data
+        this.perPage = res.data.per_page
+        this.currentPage = res.data.current_page
         // console.log(this.pagination);
         return this.isLoading = false
       })
@@ -319,9 +328,11 @@ export default {
       axios.get('http://127.0.0.1:8000/api/zakat/fitrah/' +params+ '/' +this.keyword)
 
       .then((res) => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         this.pagination = res.data.links
         this.items = res.data.data
+        this.perPage = res.data.per_page
+        this.currentPage = res.data.current_page
         // console.log(this.pagination);
         return this.isLoading = false
       })
