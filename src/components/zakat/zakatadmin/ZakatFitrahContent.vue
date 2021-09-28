@@ -115,14 +115,19 @@
       </table>
       <!-- End Table -->
 
-      {{ items.data }}
-
       <!-- Pagination -->
       <ul class="flex justify-end space-x-3 mt-5">
-        <router-link :to="'l'" class="ring-2 ring-blue-500 rounded-md hover:bg-blue-500 hover:text-white duration-150 p-1.5 px-3">1</router-link>
+        <li v-for="(item, index) in pagination" :key="index">
+          <button 
+            v-show="item.url" 
+            @click="getPagination(item.url)"
+            :class="[item.active ? 'bg-blue-500 text-white' : 'hover:bg-blue-500 hover:text-white duration-150']"
+            class="ring-2 ring-blue-500 rounded-md p-1.5 px-3" 
+            v-html="item.label"></button>
+        </li>
       </ul>
       <!-- End Pagination -->
-
+      
     </div>
     <!-- End Content -->
 
@@ -193,6 +198,7 @@ export default {
     return {
       tab: 'beras',
       items: {},
+      pagination: {},
       isLoading: false,
       modalOpen: false,
       nama: '',
@@ -257,11 +263,6 @@ export default {
       .then(() => {
         this.getDataZakat(this.tab)
 
-        setTimeout(() => {
-          this.modalOpen = false
-          this.resetData()
-        }, 1000);
-
         return this.flashMessage = 'Data berhasil dihapus'
       })
 
@@ -276,11 +277,33 @@ export default {
       this.isLoading = true
 
       axios.get('http://127.0.0.1:8000/api/zakat/fitrah/'+params)
-
+      
       .then((res) => {
-        console.log(res.data.fitrah);
+        // console.log(res.data);
+        this.pagination = res.data.links
+        this.items = res.data.data
+        console.log(this.pagination);
+        return this.isLoading = false
+      })
+
+      .catch((err) => {
         this.isLoading = false
-        return this.items = res.data.fitrah.data
+        console.log(err.response);
+      })
+    },
+
+    getPagination(url){
+      // Is Loading
+      this.isLoading = true
+
+      axios.get(url)
+      
+      .then((res) => {
+        // console.log(res.data);
+        this.pagination = res.data.links
+        this.items = res.data.data
+        // console.log(this.pagination);
+        return this.isLoading = false
       })
 
       .catch((err) => {
@@ -296,9 +319,11 @@ export default {
       axios.get('http://127.0.0.1:8000/api/zakat/fitrah/' +params+ '/' +this.keyword)
 
       .then((res) => {
-        console.log(res);
-        this.isLoading = false
-        return this.items = res.data.fitrah.data
+        console.log(res.data.data);
+        this.pagination = res.data.links
+        this.items = res.data.data
+        // console.log(this.pagination);
+        return this.isLoading = false
       })
 
       .catch((err) => {
