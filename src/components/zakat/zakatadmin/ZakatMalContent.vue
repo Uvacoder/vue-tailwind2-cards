@@ -1,20 +1,4 @@
 <template>
-  <!-- TopBar -->
-  <div class="flex justify-end">
-    <div class="flex space-x-4 items-center">
-
-      <!-- Profile -->
-      <button href="#" class="flex items-center">
-        <img src="@/assets/images/myponyasia/otaku-anime.jpg" alt="Profile Image" class="h-8 w-8 object-cover rounded-full">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-      <!-- End Profile -->
-
-    </div>
-  </div>
-  <!-- End TopBar -->
 
   <!-- Content -->
   <div class="mt-8">

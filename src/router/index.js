@@ -3,6 +3,8 @@ import About from '../views/About.vue'
 import ToDoList from '../views/ToDoList.vue'
 import Front from '../views/Front.vue'
 
+import RestoranHome from '../views/restoran/index.vue'
+
 import MPALinks from './myponyasia.js'
 import AdminLinks from './admins.js'
 import ZakatLinks from './zakat.js'
@@ -30,6 +32,13 @@ const routes = [
         component: ToDoList,
     },
 
+    {
+      path: '/restoran',
+      name: 'restoran',
+      // nama komponen yang di import
+      component: RestoranHome,
+    },
+
     // Spread operator (loop all array/object)
     ...MPALinks,
     ...AdminLinks,
@@ -41,7 +50,7 @@ const routes = [
 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
-    routes
+    routes,
 })
 
 export default router
