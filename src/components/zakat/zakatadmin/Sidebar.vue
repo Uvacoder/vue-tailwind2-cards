@@ -40,7 +40,7 @@
   <!-- Footer -->
   <div class="h-[5%]">
     <!-- Footer Option -->
-    <a href="#" class="text-right text-white/50 hover:text-white duration-150 px-5">Logout</a>
+    <button @click="logout()" class="text-right text-white/50 hover:text-white duration-150 px-5">Logout</button>
     <!-- End Footer Option -->
   </div>
   <!-- End Footer -->
@@ -48,6 +48,12 @@
 
 <script>
 export default {
-
+  methods: {
+    logout(){
+      // Delete all data in local storage
+      localStorage.clear()
+      this.$router.push({name: 'Login'})
+    }
+  },
 }
 </script>
