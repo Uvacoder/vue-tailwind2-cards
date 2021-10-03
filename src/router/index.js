@@ -2,6 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router'
 import About from '../views/About.vue'
 import ToDoList from '../views/ToDoList.vue'
 import Front from '../views/Front.vue'
+import Login from '../views/Login.vue'
 
 import RestoranHome from '../views/restoran/index.vue'
 
@@ -17,6 +18,12 @@ const routes = [
         name: 'Front',
         // nama komponen yang di import
         component: Front,
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        // nama komponen yang di import
+        component: Login,
     },
     {
         path: '/about',
@@ -51,6 +58,18 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes,
+})
+
+// Middleware in vue
+router.beforeEach((to) => {
+  // get meta data from route file
+  if (to.meta.requiresToken) {
+    // if 'token' not in localstorage
+    if (!localStorage.getItem('token')) {
+      // Redirect if not login
+      return '/login'
+    }
+  } 
 })
 
 export default router
