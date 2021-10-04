@@ -109,7 +109,7 @@
       <!-- End Table -->
 
       <!-- Pagination -->
-      <ul class="flex justify-end space-x-3 mt-5">
+      <ul v-if="this.items.length >= this.perPage" class="flex justify-end space-x-3 mt-5">
         <li v-for="(item, index) in pagination" :key="index">
           <button 
             v-show="item.url" 
@@ -279,7 +279,7 @@ export default {
     },
 
     getDataZakat(params){
-      
+      this.items = {}
       // Is Loading
       this.isLoading = true
 

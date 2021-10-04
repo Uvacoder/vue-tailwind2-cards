@@ -113,7 +113,7 @@
       <!-- End Table -->
 
       <!-- Pagination -->
-      <ul class="flex justify-end space-x-3 mt-5">
+      <ul v-if="this.items.length >= this.perPage" class="flex justify-end space-x-3 mt-5">
         <li v-for="(item, index) in pagination" :key="index">
           <button 
             v-show="item.url" 
@@ -128,7 +128,7 @@
     </div>
     <!-- End Content -->
 
-    <!-- Modal -->
+  <!-- Modal -->
   <div v-show="modalOpen" class="absolute inset-0 flex items-center justify-center">
     <div @click="modalOpen = false" class="absolute inset-0 bg-black/50" />
     <div class="relative bg-white w-1/3 h-1/2 z-10 rounded-lg shadow-lg">
@@ -150,21 +150,183 @@
       <!-- End Modal Header -->
 
       <!-- Modal Content -->
-      <div class="flex flex-col w-full px-10 py-2">
-        <label for="nama">Nama</label>
-        <input disabled v-model="nama" type="text" id="nama" class="ring-2 ring-trueGray-300 focus:ring-blue-600 rounded-lg p-1.5 focus:outline-none outline-none duration-150">
-        
-        <label for="jenis" class="pt-2">Jenis Zakat</label>
-        <select disabled v-model="jenis" id="jenis" class="ring-2 ring-trueGray-300  rounded-lg p-1.5 focus:outline-none outline-none duration-150">
-          <option value="penghasilan">Penghasilan</option>
-          <option value="emas">Emas</option>
-          <option value="sapi">Sapi</option>
-          <option value="kambing">Kambing</option>
-          <option value="pertanian">Pertanian</option>
-        </select>
-        
-        <label for="total" class="pt-2">Total Zakat</label>
-        <input disabled v-model="total" type="text" id="total" class="ring-2 ring-trueGray-300 focus:ring-blue-600 rounded-lg p-1.5 focus:outline-none outline-none duration-150">
+      <div class="flex flex-col w-full px-10 py-2 capitalize">
+
+        <table v-if="modalData.jenis == 'penghasilan'">
+          <tr>
+            <td>Nama</td>
+            <td>:</td>
+            <td> {{ modalData.nama }} </td>
+          </tr>
+          <tr>
+            <td>Jenis Zakat</td>
+            <td>:</td>
+            <td> {{ modalData.jenis }} </td>
+          </tr>
+          <tr>
+            <td class="pt-2">Tanggal Zakat</td>
+            <td class="pt-2">:</td>
+            <td class="pt-2"> {{ modalData.created_at ? modalData.created_at : '-' }} </td>
+          </tr>
+          <tr>
+            <td>Penghasilan</td>
+            <td>:</td>
+            <td> {{ modalData.data.penghasilan ? convertToCurrency(modalData.data.penghasilan) : '-' }} </td>
+          </tr>
+          <tr>
+            <td>keperluan</td>
+            <td>:</td>
+            <td> {{ modalData.data.keperluan ? convertToCurrency(modalData.data.keperluan) : '-' }} </td>
+          </tr>
+          <tr>
+            <td>Hutang</td>
+            <td>:</td>
+            <td> {{ modalData.data.hutang ? convertToCurrency(modalData.data.hutang) : '-' }} </td>
+          </tr>
+          <tr>
+            <td class="pt-5">Total Zakat</td>
+            <td class="pt-5">:</td>
+            <td class="pt-5 font-semibold"> {{ convertToCurrency(modalData.total) }} </td>
+          </tr>
+        </table>
+
+        <table v-if="modalData.jenis == 'emas'">
+          <tr>
+            <td>Nama</td>
+            <td>:</td>
+            <td> {{ modalData.nama }} </td>
+          </tr>
+          <tr>
+            <td>Jenis Zakat</td>
+            <td>:</td>
+            <td> {{ modalData.jenis }} </td>
+          </tr>
+          <tr>
+            <td class="pt-2">Tanggal Zakat</td>
+            <td class="pt-2">:</td>
+            <td class="pt-2"> {{ modalData.created_at ? modalData.created_at : '-' }} </td>
+          </tr>
+          <tr>
+            <td>Total Emas</td>
+            <td>:</td>
+            <td> {{ modalData.data.total_emas ? modalData.data.total_emas+' gram' : '-' }} </td>
+          </tr>
+          <tr>
+            <td>Harga Emas</td>
+            <td>:</td>
+            <td> {{ modalData.data.harga_emas ? convertToCurrency(modalData.data.harga_emas) : '-' }} </td>
+          </tr>
+          <tr>
+            <td>Keperluan</td>
+            <td>:</td>
+            <td> {{ modalData.data.keperluan ? convertToCurrency(modalData.data.keperluan) : '-' }} </td>
+          </tr>
+          <tr>
+            <td>Hutang</td>
+            <td>:</td>
+            <td> {{ modalData.data.hutang ? convertToCurrency(modalData.data.hutang) : '-' }} </td>
+          </tr>
+          <tr>
+            <td class="pt-5">Total Zakat</td>
+            <td class="pt-5">:</td>
+            <td class="pt-5 font-semibold"> {{ convertToCurrency(modalData.total) }} </td>
+          </tr>
+        </table>
+
+        <table v-if="modalData.jenis == 'sapi'">
+          <tr>
+            <td>Nama</td>
+            <td>:</td>
+            <td> {{ modalData.nama }} </td>
+          </tr>
+          <tr>
+            <td>Jenis Zakat</td>
+            <td>:</td>
+            <td> {{ modalData.jenis }} </td>
+          </tr>
+          <tr>
+            <td class="pt-2">Tanggal Zakat</td>
+            <td class="pt-2">:</td>
+            <td class="pt-2"> {{ modalData.created_at ? modalData.created_at : '-' }} </td>
+          </tr>
+          <tr>
+            <td>Total Sapi</td>
+            <td>:</td>
+            <td> {{ modalData.data.total_sapi ? modalData.data.total_sapi+' Ekor Sapi' : '-' }} </td>
+          </tr>
+          <tr>
+            <td class="pt-5">Total Zakat</td>
+            <td class="pt-5">:</td>
+            <td class="pt-5 font-semibold"> {{ modalData.total }} </td>
+          </tr>
+        </table>
+
+        <table v-if="modalData.jenis == 'kambing'">
+          <tr>
+            <td>Nama</td>
+            <td>:</td>
+            <td> {{ modalData.nama }} </td>
+          </tr>
+          <tr>
+            <td>Jenis Zakat</td>
+            <td>:</td>
+            <td> {{ modalData.jenis }} </td>
+          </tr>
+          <tr>
+            <td class="pt-2">Tanggal Zakat</td>
+            <td class="pt-2">:</td>
+            <td class="pt-2"> {{ modalData.created_at ? modalData.created_at : '-' }} </td>
+          </tr>
+          <tr>
+            <td>Total Kambing</td>
+            <td>:</td>
+            <td> {{ modalData.data.total_kambing ? modalData.data.total_kambing+' Ekor Kambing' : '-' }} </td>
+          </tr>
+          <tr>
+            <td class="pt-5">Total Zakat</td>
+            <td class="pt-5">:</td>
+            <td class="pt-5 font-semibold"> {{ modalData.total }} </td>
+          </tr>
+        </table>
+
+        <table v-if="modalData.jenis == 'pertanian'">
+          <tr>
+            <td>Nama</td>
+            <td>:</td>
+            <td> {{ modalData.nama }} </td>
+          </tr>
+          <tr>
+            <td>Jenis Zakat</td>
+            <td>:</td>
+            <td> {{ modalData.jenis }} </td>
+          </tr>
+          <tr>
+            <td class="pt-2">Tanggal Zakat</td>
+            <td class="pt-2">:</td>
+            <td class="pt-2"> {{ modalData.created_at ? modalData.created_at : '-' }} </td>
+          </tr>
+          <tr>
+            <td>Harga Panen per kg</td>
+            <td>:</td>
+            <td> {{ modalData.data.harga ? convertToCurrency(modalData.data.harga) : '-' }} </td>
+          </tr>
+          <tr>
+            <td>Total Panen</td>
+            <td>:</td>
+            <td> {{ modalData.data.total_panen ? modalData.data.total_panen +' Kg' : '-' }}  </td>
+          </tr>
+          <tr>
+            <td>Zakat Pertanian</td>
+            <td>:</td>
+            <td> {{ modalData.data.zakat_pertanian == 0.1 ? '10%' : '5%' }}  </td>
+          </tr>
+          <tr>
+            <td class="pt-5">Total Zakat</td>
+            <td class="pt-5">:</td>
+            <td class="pt-5 font-semibold"> {{ modalData.total }} </td>
+          </tr>
+        </table>
+
       </div>
       <!-- End Modal Content -->
 
@@ -197,6 +359,8 @@ export default {
 
       isLoading: false,
       modalOpen: false,
+      modalData: {},
+      modalDetail: {},
 
       userRole: localStorage.getItem('role'),
 
@@ -224,7 +388,7 @@ export default {
     },
 
     getDataZakat(params){
-      
+      this.items = {}
       // Is Loading
       this.isLoading = true
 
@@ -292,10 +456,14 @@ export default {
 
     detailZakat(index){
       this.modalOpen = true
-      this.nama = this.items[index].nama
-      this.jenis = this.items[index].jenis
-      this.total = this.items[index].total
-      this.id = this.items[index].id
+      this.modalData = {
+        nama: this.items[index].nama,
+        jenis: this.items[index].jenis,
+        data: JSON.parse(this.items[index].data),
+        total: this.items[index].total,
+        created_at: this.items[index].created_at,
+      }
+      console.log(this.modalData);
     },
 
     searchData(params){

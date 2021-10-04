@@ -7,9 +7,9 @@
     <div class="flex justify-between">
 
       <!-- Left Tab -->
-      <div v-show="userRole == 'admin'" class="space-x-5">
-        <button @click="tab = 'data'" :class="[ tab == 'data' ? 'border-blue-500' : 'border-transparent opacity-50 hover:opacity-100 duration-150' ]" class="border-b-2 font-semibold capitalize">Data</button>
-        <button @click="tab = 'deleted'" :class="[ tab == 'deleted' ? 'border-red-500' : 'border-transparent opacity-50 hover:opacity-100 duration-150' ]" class="border-b-2 font-semibold capitalize">Data Terhapus</button>
+      <div class="space-x-5">
+        <button v-show="userRole == 'admin'" @click="tab = 'data'" :class="[ tab == 'data' ? 'border-blue-500' : 'border-transparent opacity-50 hover:opacity-100 duration-150' ]" class="border-b-2 font-semibold capitalize">Data</button>
+        <button v-show="userRole == 'admin'" @click="tab = 'deleted'" :class="[ tab == 'deleted' ? 'border-red-500' : 'border-transparent opacity-50 hover:opacity-100 duration-150' ]" class="border-b-2 font-semibold capitalize">Data Terhapus</button>
       </div>
       <!-- End Left Tab -->
       
@@ -106,7 +106,7 @@
       <!-- End Table -->
 
       <!-- Pagination -->
-      <ul class="flex justify-end space-x-3 mt-5">
+      <ul v-if="this.items.length >= this.perPage" class="flex justify-end space-x-3 mt-5">
         <li v-for="(item, index) in pagination" :key="index">
           <button 
             v-show="item.url" 
@@ -223,7 +223,7 @@ export default {
     },
 
     getDataInfaq(){
-      
+      this.items = {}
       // Is Loading
       this.isLoading = true
       
