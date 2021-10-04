@@ -2,10 +2,7 @@
   <!-- logo -->
   <div class="h-[15%] text-white/90">
     <a href="#" class="flex justify-center items-center space-x-2 pt-5">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-      <h1 class="text-xl font-extrabold">Logos</h1>
+      <h1 class="text-xl font-extrabold">Zakat Admin</h1>
     </a>
   </div>
   <!-- End logo -->
@@ -38,9 +35,10 @@
   <!-- End Sidebar -->
 
   <!-- Footer -->
-  <div class="h-[5%]">
+  <div class="h-[5%] flex items-center justify-between px-10">
     <!-- Footer Option -->
-    <button @click="logout()" class="text-right text-white/50 hover:text-white duration-150 px-5">Logout</button>
+    <button @click="logout()" class="text-right text-white/50 hover:text-white duration-150">Logout</button>
+    <h3 class="font-semibold capitalize"> {{ user }} </h3>
     <!-- End Footer Option -->
   </div>
   <!-- End Footer -->
@@ -57,6 +55,11 @@ axios.defaults.headers = {
 axios.defaults.timeout = 5000
 
 export default {
+  data() {
+    return {
+      user: localStorage.getItem('nama')
+    }
+  },
   methods: {
     logout(){
       // Delete all data in local storage
