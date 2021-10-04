@@ -3,6 +3,7 @@ import ZakatAdmin from '../views/zakat/ZakatAdmin.vue'
   import MalAdmin from '../components/zakat/zakatadmin/ZakatMalContent.vue'
   import InfaqAdmin from '../components/zakat/zakatadmin/InfaqContent.vue'
   import Mustahik from '../components/zakat/zakatadmin/MustahikContent.vue'
+  import Dashboard from '../components/zakat/zakatadmin/Dashboard.vue'
 
 import zakatHome from '../views/zakat/zakatHome.vue'
 import zakatCalculate from '../views/zakat/zakatCalculate.vue'
@@ -27,6 +28,11 @@ const route = [
     component: ZakatAdmin,
     meta: { requiresToken: true },
     children: [
+      {
+        path: '/zakatadmin',
+        component: Dashboard,
+        meta: { requiresToken: true }
+      },
       {
         path: 'fitrah',
         component: FitrahAdmin,
