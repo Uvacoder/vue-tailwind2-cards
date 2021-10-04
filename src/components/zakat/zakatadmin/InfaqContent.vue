@@ -4,7 +4,14 @@
   <div class="mt-8">
 
     <!-- Tab & Search -->
-    <div class="flex justify-end">
+    <div class="flex justify-between">
+
+      <!-- Left Tab -->
+      <div v-show="userRole == 'admin'" class="space-x-5">
+        <button @click="tab = 'data'" :class="[ tab == 'data' ? 'border-blue-500' : 'border-transparent opacity-50 hover:opacity-100 duration-150' ]" class="border-b-2 font-semibold capitalize">Data</button>
+        <button @click="tab = 'deleted'" :class="[ tab == 'deleted' ? 'border-red-500' : 'border-transparent opacity-50 hover:opacity-100 duration-150' ]" class="border-b-2 font-semibold capitalize">Data Terhapus</button>
+      </div>
+      <!-- End Left Tab -->
       
       <!-- Search -->
       <div class="flex relative items-center opacity-75">
@@ -48,7 +55,7 @@
               <div class="flex justify-center items-center text-black/40 space-x-4">
                 
                 <!-- Edit button -->
-                <button @click="populateModal(index)">
+                <button v-show="tab != 'deleted'" @click="populateModal(index)">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-yellow-500 duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                   </svg>
@@ -56,12 +63,21 @@
                 <!-- End Edit button -->
 
                 <!-- Delete button -->
-                <button @click="deleteData(item.id)">
+                <button v-show="tab != 'deleted'" @click="deleteData(item.id)">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-red-500 duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                   </svg>
                 </button>
                 <!-- End Delete button -->
+
+                <!-- Restore button -->
+                <button v-show="tab == 'deleted'" @click="restoreData(item.id)" title="Restore Button">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-blue-500 duration-150" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                  </svg>
+                </button>
+                <!-- End Restore button -->
 
               </div>
             </td>
@@ -171,6 +187,7 @@ axios.defaults.timeout = 5000
 export default {
   data() {
     return {
+      tab: 'data',
       items: {},
       pagination: {},
       perPage: '',
@@ -179,6 +196,8 @@ export default {
       isLoading: false,
       modalOpen: false,
       flashMessage: '',
+
+      userRole: localStorage.getItem('role'),
 
       nama: '',
       jumlah: '',
@@ -207,8 +226,10 @@ export default {
       
       // Is Loading
       this.isLoading = true
+      
+      const isDeleted = this.tab == 'data' ? 'http://127.0.0.1:8000/api/zakat/infaq' : 'http://127.0.0.1:8000/api/zakat/infaq/deleted'
 
-      axios.get('http://127.0.0.1:8000/api/zakat/infaq', {
+      axios.get(isDeleted, {
         // just this one gets header, if not will redirect to login
         headers: {
           'accept': 'application/json',
@@ -321,14 +342,52 @@ export default {
       })
     },
 
+    searchDeletedData(){
+      // Is Loading
+      this.isLoading = true
+
+      axios.get('http://127.0.0.1:8000/api/zakat/infaq/deleted/'+this.keyword)
+
+      .then((res) => {
+        // console.log(res.data.data)
+        this.pagination = res.data.links
+        this.items = res.data.data
+        this.perPage = res.data.per_page
+        this.currentPage = res.data.current_page
+        // console.log(this.pagination);
+        return this.isLoading = false
+      })
+
+      .catch((err) => {
+        this.isLoading = false
+        console.log(err.response);
+      })
+    },
+
+    restoreData(id){
+      axios.patch('http://127.0.0.1:8000/api/zakat/infaq/restore/'+id)
+
+      .then(() => {
+        // console.log(res);
+        this.getDataInfaq()
+      })
+
+      .catch((err) => {
+        console.log(err);
+      })
+    }
+
   },
 
   watch: {
+    tab(){
+      this.getDataInfaq()
+    },
 
     keyword(){
       if (this.delaySearch) {
         setTimeout(() => {
-          this.searchData()
+          this.tab == 'deleted' ? this.searchDeletedData() : this.searchData()
           this.delaySearch = true
         }, 1000);
       }

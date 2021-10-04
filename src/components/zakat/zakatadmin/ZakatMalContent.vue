@@ -3,7 +3,7 @@
   <!-- Content -->
   <div class="mt-8">
 
-    <!-- Tab -->
+    <!-- Tab & Search -->
     <div class="flex justify-between">
       
       <!-- Left Tab -->
@@ -13,6 +13,7 @@
         <button @click="tab = 'sapi'" :class="[ tab == 'sapi' ? 'border-blue-500' : 'border-transparent opacity-50 hover:opacity-100 duration-150' ]" class="border-b-2 font-semibold capitalize">Sapi</button>
         <button @click="tab = 'kambing'" :class="[ tab == 'kambing' ? 'border-blue-500' : 'border-transparent opacity-50 hover:opacity-100 duration-150' ]" class="border-b-2 font-semibold capitalize">Kambing</button>
         <button @click="tab = 'pertanian'" :class="[ tab == 'pertanian' ? 'border-blue-500' : 'border-transparent opacity-50 hover:opacity-100 duration-150' ]" class="border-b-2 font-semibold capitalize">Pertanian</button>
+        <button v-show="userRole == 'admin'" @click="tab = 'deleted'" :class="[ tab == 'deleted' ? 'border-red-500' : 'border-transparent opacity-50 hover:opacity-100 duration-150' ]" class="border-b-2 font-semibold capitalize">Data Terhapus</button>
       </div>
       <!-- End Left Tab -->
 
@@ -26,7 +27,7 @@
       <!-- End Search -->
 
     </div>
-    <!-- End Tab -->
+    <!-- End Tab & Search -->
 
     <!-- Content -->
     <div class="mt-10">
@@ -61,7 +62,7 @@
               <div class="flex justify-center items-center text-black/40 space-x-4">
                 
                 <!-- Info button -->
-                <button @click="detailZakat(index)">
+                <button v-show="tab != 'deleted'" @click="detailZakat(index)">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-blue-500 duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -69,12 +70,21 @@
                 <!-- End Info button -->
 
                 <!-- Delete button -->
-                <button @click="deleteZakat(item.id)">
+                <button v-show="tab != 'deleted'" @click="deleteZakat(item.id)">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-red-500 duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                   </svg>
                 </button>
                 <!-- End Delete button -->
+
+                <!-- Restore button -->
+                <button v-show="tab == 'deleted'" @click="restoreData(item.id)" title="Restore Button">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-blue-500 duration-150" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                  </svg>
+                </button>
+                <!-- End Restore button -->
                 
               </div>
             </td>
@@ -188,6 +198,8 @@ export default {
       isLoading: false,
       modalOpen: false,
 
+      userRole: localStorage.getItem('role'),
+
       nama: '',
       jenis: '',
       total: '',
@@ -209,7 +221,6 @@ export default {
       this.jenis = ''
       this.total = ''
       this.id = ''
-      this.flashMessage = ''
     },
 
     getDataZakat(params){
@@ -309,6 +320,41 @@ export default {
       })
     },
 
+    searchDeletedData(){
+      // Is Loading
+      
+      this.isLoading = true
+
+      axios.get('http://127.0.0.1:8000/api/zakat/mal/deleted/'+this.keyword)
+
+      .then((res) => {
+        this.pagination = res.data.links
+        this.items = res.data.data
+        this.perPage = res.data.per_page
+        this.currentPage = res.data.current_page
+        // console.log(this.pagination);
+        return this.isLoading = false
+      })
+
+      .catch((err) => {
+        this.isLoading = false
+        console.log(err.response);
+      })
+    },
+
+    restoreData(id){
+      axios.patch('http://127.0.0.1:8000/api/zakat/mal/restore/'+id)
+
+      .then(() => {
+        // console.log(res);
+        this.getDataZakat(this.tab)
+      })
+
+      .catch((err) => {
+        console.log(err);
+      })
+    }
+
   },
 
   watch: {
@@ -319,7 +365,7 @@ export default {
     keyword(){
       if (this.delaySearch) {
         setTimeout(() => {
-          this.searchData(this.tab)
+          this.tab == 'deleted' ? this.searchDeletedData() : this.searchData(this.tab)
           this.delaySearch = true
         }, 1000);
       }
