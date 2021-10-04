@@ -161,6 +161,13 @@
 <script>
 import axios from 'axios'
 
+axios.defaults.withCredentials = true
+axios.defaults.headers = {
+    'accept': 'application/json', 
+    'Authorization': 'Bearer '+localStorage.getItem('token')
+}
+axios.defaults.timeout = 5000
+
 export default {
   data() {
     return {
@@ -201,7 +208,13 @@ export default {
       // Is Loading
       this.isLoading = true
 
-      axios.get('http://127.0.0.1:8000/api/zakat/infaq')
+      axios.get('http://127.0.0.1:8000/api/zakat/infaq', {
+        // just this one gets header, if not will redirect to login
+        headers: {
+          'accept': 'application/json',
+          'Authorization': 'Bearer '+localStorage.getItem('token')
+        }
+      })
       
       .then((res) => {
         // console.log(res.data);
@@ -216,6 +229,9 @@ export default {
       .catch((err) => {
         this.isLoading = false
         console.log(err);
+        if (err.response.status == 401) {
+          this.$router.push('/login')
+        }
       })
     },
 
@@ -322,7 +338,7 @@ export default {
 
   },
 
-  created(){
+  mounted(){
     this.getDataInfaq()
   },
 }

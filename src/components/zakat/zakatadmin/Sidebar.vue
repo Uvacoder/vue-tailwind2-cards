@@ -47,10 +47,22 @@
 </template>
 
 <script>
+import axios from 'axios'
+
+axios.defaults.withCredentials = true
+axios.defaults.headers = {
+    'accept': 'application/json', 
+    'Authorization': 'Bearer '+localStorage.getItem('token')
+}
+axios.defaults.timeout = 5000
+
 export default {
   methods: {
     logout(){
       // Delete all data in local storage
+      axios.post('http://127.0.0.1:8000/api/logout', {
+        name: localStorage.getItem('nama')
+      })
       localStorage.clear()
       this.$router.push({name: 'Login'})
     }
