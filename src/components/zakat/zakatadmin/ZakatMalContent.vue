@@ -213,7 +213,7 @@ export default {
       axios.get('http://127.0.0.1:8000/api/zakat/mal/'+params)
       
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         this.pagination = res.data.links
         this.items = res.data.data
         this.perPage = res.data.per_page
@@ -278,7 +278,7 @@ export default {
       axios.get('http://127.0.0.1:8000/api/zakat/mal/' +params+ '/' +this.keyword)
 
       .then((res) => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         
         this.pagination = res.data.links
         this.items = res.data.data

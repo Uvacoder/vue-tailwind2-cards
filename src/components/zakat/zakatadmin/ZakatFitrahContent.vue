@@ -176,6 +176,8 @@
 <script>
 import axios from 'axios'
 
+axios.defaults.withCredentials = true
+
 export default {
   data() {
     return {
@@ -264,10 +266,32 @@ export default {
       // Is Loading
       this.isLoading = true
 
-      axios.get('http://127.0.0.1:8000/api/zakat/fitrah/'+params)
+      // axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie', {
+      //   headers: {
+      //     'accept': 'application/json',
+      //   },
+      // })
+      // .then(res => { 
+      //   console.log(res);
+      // })
+      // .catch(err => {
+      //   console.log(err);
+      // })
+      
+
+      axios.get('http://127.0.0.1:8000/api/zakat/fitrah/'+params, {
+        timeout: 5000,
+        
+        headers: {
+          'accept': 'application/json',
+        },
+        
+      })
       
       .then((res) => {
-        // console.log(res.data);
+        
+        // console.log(res);
+
         this.pagination = res.data.links
         this.items = res.data.data
         this.perPage = res.data.per_page
@@ -276,9 +300,10 @@ export default {
         return this.isLoading = false
       })
 
-      .catch((err) => {
+      .catch(() => {
+        
         this.isLoading = false
-        console.log(err.response);
+        // console.log(err);
       })
     },
 
