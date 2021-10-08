@@ -67,7 +67,7 @@ router.beforeEach((to) => {
     // if 'token' not in localstorage
     if (!localStorage.getItem('token')) {
       // Redirect if not login
-      return '/login'
+      return '/login?error=dare'
     }
   } 
 })

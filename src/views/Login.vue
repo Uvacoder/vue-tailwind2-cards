@@ -56,6 +56,16 @@
     <!-- End Right Content -->
 
   </div>
+
+  <!-- Toast Alert -->
+  <div :class="[toastData.isActive ? 'top-10 opacity-100' : 'top-5 opacity-0']" class="absolute right-10 transition-all duration-300">
+    <div class="bg-green-500 shadow-lg py-2 rounded-xl flex justify-between items-center">
+      <p class="font-semibold text-white text-sm px-5">{{ toastData.text }}</p>
+      <button @click="toastData.isActive = false " class="pr-5 text-red-500 font-bold">x</button>
+    </div>
+  </div>
+  <!-- End Toast Alert -->
+
 </template>
 
 <script>
@@ -70,8 +80,13 @@ export default {
       showPassword: false,
       email: '',
       password: '',
-      response: {},
       errors: {},
+
+      toastData: {
+        isActive: false,
+        text: '',
+        timeout: 3000,
+      },
     }
   },
 
@@ -92,9 +107,28 @@ export default {
       })
 
       .catch((err) => {
-        // console.log(err.response.data)
-        this.errors = err.response.data.errors
+        if (err.response.status == 418) {
+          return this.toast('Email/Password salah!')
+        }
+        console.log(err.response.status)
+        this.errors = err.response.status
       })
+    },
+
+    toast(text){
+
+      this.toastData.isActive = true
+      this.toastData.text = text
+
+      setTimeout(() => {
+        this.toastData.isActive = false
+      }, this.toastData.timeout);
+    }
+
+  },
+  mounted() {
+    if (this.$route.query.error == 'kicked') {
+      this.toast('Anda harus login lagi')
     }
   },
 }
