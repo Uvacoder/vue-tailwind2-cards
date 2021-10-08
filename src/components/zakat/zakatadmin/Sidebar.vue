@@ -29,6 +29,9 @@
     <router-link to="/zakatadmin/mustahik" :class="[ this.$route.fullPath == '/zakatadmin/mustahik' ? 'text-blue-500/90 bg-white' : 'text-white/50 hover:text-white/100 duration-150']" class="flex p-1.5 px-5 rounded-full items-center space-x-2 duration-200">
       <h1 class="text-lg font-bold">Daftar Mustahik</h1>
     </router-link>
+    <router-link to="/zakatadmin/admins" :class="[ this.$route.fullPath == '/zakatadmin/admins' ? 'text-blue-500/90 bg-white' : 'text-white/50 hover:text-white/100 duration-150']" class="flex p-1.5 px-5 rounded-full items-center space-x-2 duration-200">
+      <h1 class="text-lg font-bold">Admin</h1>
+    </router-link>
     <!-- Zakat Fitrah menu -->
 
   </div>

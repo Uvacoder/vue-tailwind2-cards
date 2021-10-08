@@ -10,7 +10,7 @@
       <div class="space-x-5">
         <button @click="tab = 'beras'" :class="[ tab == 'beras' ? 'border-blue-500' : 'border-transparent opacity-50 hover:opacity-100 duration-150' ]" class="border-b-2 font-semibold capitalize">Fitrah Beras</button>
         <button @click="tab = 'uang'" :class="[ tab == 'uang' ? 'border-blue-500' : 'border-transparent opacity-50 hover:opacity-100 duration-150' ]" class="border-b-2 font-semibold capitalize">Fitrah Uang</button>
-        <button v-show="userRole == 'admin'" @click="tab = 'deleted'" :class="[ tab == 'deleted' ? 'border-red-500' : 'border-transparent opacity-50 hover:opacity-100 duration-150' ]" class="border-b-2 font-semibold capitalize">Data Terhapus</button>
+        <button v-show="userAccess.role == 'admin'" @click="tab = 'deleted'" :class="[ tab == 'deleted' ? 'border-red-500' : 'border-transparent opacity-50 hover:opacity-100 duration-150' ]" class="border-b-2 font-semibold capitalize">Data Terhapus</button>
       </div>
       <!-- End Left Tab -->
 
@@ -186,13 +186,6 @@
 <script>
 import axios from 'axios'
 
-axios.defaults.withCredentials = true
-axios.defaults.headers = {
- 'accept': 'application/json',
-  'Authorization': 'Bearer '+localStorage.getItem('token')   
-}
-axios.defaults.timeout = 5000
-
 export default {
   data() {
     return {
@@ -206,13 +199,24 @@ export default {
       modalOpen: false,
       flashMessage: '',
 
-      userRole: localStorage.getItem('role'),
+      axiosConfig: {
+        headers: {
+          'accept': 'application/json',
+          'Authorization': 'Bearer '+ localStorage.getItem('token')
+        },
+        timeout: 5000,
+        withCredentials: true
+      },
+
+      userAccess: {
+        nama: '',
+        role: '',
+      },
 
       nama: '',
       jenis: '',
       jumlah: '',
       id: '',
-      
 
       keyword: '',
       delaySearch: true
@@ -246,7 +250,7 @@ export default {
         nama: this.nama,
         jenis: this.jenis,
         jumlah: this.jumlah,
-      })
+      }, this.axiosConfig)
         
       .then(() => {
         this.getDataZakat(this.tab)
@@ -265,7 +269,7 @@ export default {
     },
 
     deleteData(id){
-      axios.patch('http://127.0.0.1:8000/api/zakat/fitrah/' + id)
+      axios.delete('http://127.0.0.1:8000/api/zakat/fitrah/' + id ,this.axiosConfig)
         
       .then(() => {
         this.getDataZakat(this.tab)
@@ -283,16 +287,10 @@ export default {
       // Is Loading
       this.isLoading = true
 
-      axios.get('http://127.0.0.1:8000/api/zakat/fitrah/'+params, {
-        // just this one gets header, if not will redirect to login
-        headers: {
-          'accept': 'application/json',
-          'Authorization': 'Bearer '+localStorage.getItem('token')
-        }
-      })
+      axios.get('http://127.0.0.1:8000/api/zakat/fitrah/'+params, this.axiosConfig)
       
       .then((res) => {
-        
+        // console.log(res);
         this.pagination = res.data.links
         this.items = res.data.data
         this.perPage = res.data.per_page
@@ -307,7 +305,7 @@ export default {
         console.log(err.response);
         if (err.response.status == 401) {
           // console.log('lala');
-          // this.$router.push('/login')
+          return this.$router.push('/login?error=kicked')
         }
       })
     },
@@ -316,7 +314,7 @@ export default {
       // Is Loading
       this.isLoading = true
 
-      axios.get(url)
+      axios.get(url, this.axiosConfig)
       
       .then((res) => {
         // console.log(res.data);
@@ -338,7 +336,7 @@ export default {
       // Is Loading
       this.isLoading = true
 
-      axios.get('http://127.0.0.1:8000/api/zakat/fitrah/'+params+'/'+this.keyword)
+      axios.get('http://127.0.0.1:8000/api/zakat/fitrah/'+params+'/'+this.keyword, this.axiosConfig)
 
       .then((res) => {
         // console.log(res.data.data);
@@ -360,7 +358,7 @@ export default {
       // Is Loading
       this.isLoading = true
 
-      axios.get('http://127.0.0.1:8000/api/zakat/fitrah/deleted/'+this.keyword)
+      axios.get('http://127.0.0.1:8000/api/zakat/fitrah/deleted/'+this.keyword, this.axiosConfig)
 
       .then((res) => {
         // console.log(res.data.data)
@@ -379,7 +377,7 @@ export default {
     },
 
     restoreData(id){
-      axios.patch('http://127.0.0.1:8000/api/zakat/fitrah/restore/'+id)
+      axios.get('http://127.0.0.1:8000/api/zakat/fitrah/restore/'+id, this.axiosConfig)
 
       .then(() => {
         // console.log(res);
@@ -406,12 +404,14 @@ export default {
       }
       
       this.delaySearch = false
-    }
+    },
   },
 
   mounted(){
     this.getDataZakat(this.tab)
 
-  }
+    this.userAccess.nama = localStorage.getItem('nama')
+    this.userAccess.role = localStorage.getItem('role')
+  },
 }
 </script>

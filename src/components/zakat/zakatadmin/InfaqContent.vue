@@ -177,13 +177,6 @@
 <script>
 import axios from 'axios'
 
-axios.defaults.withCredentials = true
-axios.defaults.headers = {
-    'accept': 'application/json', 
-    'Authorization': 'Bearer '+localStorage.getItem('token')
-}
-axios.defaults.timeout = 5000
-
 export default {
   data() {
     return {
@@ -198,6 +191,15 @@ export default {
       flashMessage: '',
 
       userRole: localStorage.getItem('role'),
+
+      axiosConfig: {
+        headers: {
+          'accept': 'application/json',
+          'Authorization': 'Bearer '+ localStorage.getItem('token')
+        },
+        timeout: 5000,
+        withCredentials: true
+      },
 
       nama: '',
       jumlah: '',
@@ -229,13 +231,7 @@ export default {
       
       const isDeleted = this.tab == 'data' ? 'http://127.0.0.1:8000/api/zakat/infaq' : 'http://127.0.0.1:8000/api/zakat/infaq/deleted'
 
-      axios.get(isDeleted, {
-        // just this one gets header, if not will redirect to login
-        headers: {
-          'accept': 'application/json',
-          'Authorization': 'Bearer '+localStorage.getItem('token')
-        }
-      })
+      axios.get(isDeleted, this.axiosConfig)
       
       .then((res) => {
         // console.log(res.data);
@@ -251,13 +247,13 @@ export default {
         this.isLoading = false
         console.log(err);
         if (err.response.status == 401) {
-          this.$router.push('/login')
+          return this.$router.push('/login?error=kicked')
         }
       })
     },
 
     deleteData(id){
-      axios.patch('http://127.0.0.1:8000/api/zakat/infaq/' + id)
+      axios.delete('http://127.0.0.1:8000/api/zakat/infaq/' + id, this.axiosConfig)
         
       .then(() => {
         this.getDataInfaq()
@@ -280,7 +276,7 @@ export default {
       axios.put('http://127.0.0.1:8000/api/zakat/infaq/' + this.id, {
         nama: this.nama,
         jumlah: this.jumlah,
-      })
+      }, this.axiosConfig)
         
       .then(() => {
         this.getDataInfaq()
@@ -302,7 +298,7 @@ export default {
       // Is Loading
       this.isLoading = true
 
-      axios.get(url)
+      axios.get(url, this.axiosConfig)
       
       .then((res) => {
         // console.log(res.data);
@@ -324,7 +320,7 @@ export default {
       // Is Loading
       this.isLoading = true
 
-      axios.get('http://127.0.0.1:8000/api/zakat/infaq/'+this.keyword)
+      axios.get('http://127.0.0.1:8000/api/zakat/infaq/'+this.keyword, this.axiosConfig)
 
       .then((res) => {
         // console.log(res.data.data);
@@ -346,7 +342,7 @@ export default {
       // Is Loading
       this.isLoading = true
 
-      axios.get('http://127.0.0.1:8000/api/zakat/infaq/deleted/'+this.keyword)
+      axios.get('http://127.0.0.1:8000/api/zakat/infaq/deleted/'+this.keyword, this.axiosConfig)
 
       .then((res) => {
         // console.log(res.data.data)
@@ -365,7 +361,7 @@ export default {
     },
 
     restoreData(id){
-      axios.patch('http://127.0.0.1:8000/api/zakat/infaq/restore/'+id)
+      axios.get('http://127.0.0.1:8000/api/zakat/infaq/restore/'+id, this.axiosConfig)
 
       .then(() => {
         // console.log(res);

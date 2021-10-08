@@ -341,13 +341,6 @@
 <script>
 import axios from 'axios'
 
-axios.defaults.withCredentials = true
-axios.defaults.headers = {
-    'accept': 'application/json', 
-    'Authorization': 'Bearer '+localStorage.getItem('token')
-}
-axios.defaults.timeout = 5000
-
 export default {
   data() {
     return {
@@ -363,6 +356,14 @@ export default {
       modalDetail: {},
 
       userRole: localStorage.getItem('role'),
+      axiosConfig: {
+        headers: {
+          'accept': 'application/json',
+          'Authorization': 'Bearer '+ localStorage.getItem('token')
+        },
+        timeout: 5000,
+        withCredentials: true
+      },
 
       nama: '',
       jenis: '',
@@ -392,13 +393,7 @@ export default {
       // Is Loading
       this.isLoading = true
 
-      axios.get('http://127.0.0.1:8000/api/zakat/mal/'+params, {
-        // just this one gets header, if not will redirect to login
-        headers: {
-          'accept': 'application/json',
-          'Authorization': 'Bearer '+localStorage.getItem('token')
-        }
-      })
+      axios.get('http://127.0.0.1:8000/api/zakat/mal/'+params, this.axiosConfig)
       
       .then((res) => {
         // console.log(res.data);
@@ -414,7 +409,7 @@ export default {
         this.isLoading = false
         console.log(err.response);
         if (err.response.status == 401) {
-          this.$router.push('/login')
+          return this.$router.push('/login?error=kicked')
         }
       })
     },
@@ -423,7 +418,7 @@ export default {
       // Is Loading
       this.isLoading = true
 
-      axios.get(url)
+      axios.get(url, this.axiosConfig)
       
       .then((res) => {
         // console.log(res.data);
@@ -442,7 +437,7 @@ export default {
     },
 
     deleteZakat(id){
-      axios.patch('http://127.0.0.1:8000/api/zakat/mal/' + id)
+      axios.delete('http://127.0.0.1:8000/api/zakat/mal/' + id, this.axiosConfig)
         
       .then(() => {
         // get Updated data
@@ -463,14 +458,14 @@ export default {
         total: this.items[index].total,
         created_at: this.items[index].created_at,
       }
-      console.log(this.modalData);
+      // console.log(this.modalData);
     },
 
     searchData(params){
       // Is Loading
       this.isLoading = true
 
-      axios.get('http://127.0.0.1:8000/api/zakat/mal/' +params+ '/' +this.keyword)
+      axios.get('http://127.0.0.1:8000/api/zakat/mal/' +params+ '/' +this.keyword, this.axiosConfig)
 
       .then((res) => {
         // console.log(res.data.data);
@@ -493,7 +488,7 @@ export default {
       
       this.isLoading = true
 
-      axios.get('http://127.0.0.1:8000/api/zakat/mal/deleted/'+this.keyword)
+      axios.get('http://127.0.0.1:8000/api/zakat/mal/deleted/'+this.keyword, this.axiosConfig)
 
       .then((res) => {
         this.pagination = res.data.links
@@ -511,7 +506,7 @@ export default {
     },
 
     restoreData(id){
-      axios.patch('http://127.0.0.1:8000/api/zakat/mal/restore/'+id)
+      axios.get('http://127.0.0.1:8000/api/zakat/mal/restore/'+id, this.axiosConfig)
 
       .then(() => {
         // console.log(res);
