@@ -187,9 +187,31 @@ export default {
   data() {
     return {
       tab: 'data',
+      items: {},
+      pagination: {},
+      perPage: '',
+      currentPage: '',
+
+      isLoading: false,
+      modalOpen: false,
+
+      userAccess: {
+        role: localStorage.getItem('role'),
+      } ,
+
+      axiosConfig: {
+        headers: {
+          'accept': 'application/json',
+          'Authorization': 'Bearer '+ localStorage.getItem('token')
+        },
+        timeout: 5000,
+        withCredentials: true
+      },
 
       keyword: '',
+      delaySearch: true
     }
   },
+
 }
 </script>

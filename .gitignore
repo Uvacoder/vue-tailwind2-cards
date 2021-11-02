@@ -3,6 +3,7 @@ node_modules
 /dist
 .yarn
 .yarnrc.yml
+.pnp.cjs
 
 # local env files
 .env.local

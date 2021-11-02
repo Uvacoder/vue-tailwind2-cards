@@ -199,11 +199,13 @@ export default {
 
   methods: {
     getData(){
+      this.isLoading = true
       axios.get(this.axiosUrl+'admins', this.axiosConfig)
 
       .then( res => {
         // console.log(res);
         this.items = res.data
+        this.isLoading = false
       })
 
       .catch( err => {
@@ -215,6 +217,9 @@ export default {
     },
 
     storeData(){
+      
+      this.isLoading = true
+
       axios.post(this.axiosUrl+'admins', {
         name: this.nama,
         email: this.email,
@@ -231,6 +236,7 @@ export default {
         this.role = ''
         this.password = ''
         this.errors = {}
+        this.isLoading = false
         this.getData()
       })
 
